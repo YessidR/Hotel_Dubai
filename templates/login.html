@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- <link rel="stylesheet" href="css/login.css"> -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}">
+    
+</head>
+
+<body> 
+<!-- <body background="/img/login.jpeg"> --> <!--Se agrega el backround por la imagen de fondo-->
+
+    <!-- <form action="/action_page.php" class="form"> -->
+        <form action="/" class="form">
+       
+        <h2 class="form_title">Dubai Hotel and Residences</h2>
+        <!-- <p class="form_paragraph">¿Aun no tienes cuenta? <a href="/new_user.html" class="form_link">Registrese aqui</a></p> -->
+        <p class="form_paragraph">¿Aun no tienes cuenta? <a href="new_user" class="form_link">Registrese aqui</a></p>
+
+        <div class="form_container">
+             <div class="form_group">
+                <input type="text" id="user" class="form_input" placeholder=" ">
+                <label for="user" class="form_label">Nombre de usuario:</label>
+                <span class="form_line"></span>
+            </div>
+
+            <div class="form_group">
+                <!-- <input type="password" id="password" class="form_input" placeholder=" " minlength="8" title="Debe contener al menos 8 caracteres, entre estos una mayuscula, una minuscula y un carcter especial" required> -->
+                <input type="password" id="password" class="form_input" placeholder=" " name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos 8 carácteres, entre ellos una mayúscula, una minúscula y un carácter especial" required>
+                <label for="password" class="form_label">Contraseña:</label>
+                <span class="form_line"></span>
+            </div>
+
+            <div class="show_pass">
+                <input type="checkbox" onclick="myFunction()">
+                <a>   Mostrar Contraseña</a>
+
+                <script> //Invocando java Script
+                    function myFunction() {
+                      var x = document.getElementById("password");
+                      if (x.type === "password") {
+                        x.type = "text";
+                      } else {
+                        x.type = "password";
+                      }
+                    }
+                </script>
+
+            </div>
+
+            <input type="submit" id="boton" class="form_submit" value="Entrar"> <a href="/usuario_nuevo.html"></a> 
+            <script>
+                //si oprimo el boton cambiar la ruta del action.php
+                //document.getElementById("boton").action="/usuario_nuevo.html";
+            </script>
+        </div>
+
+
+    </form>
+</body>
+</html>

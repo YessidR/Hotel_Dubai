@@ -1,0 +1,133 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-image: url("../img/pexels-gapeppy-2373201.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    height: 380px;
+}
+body::after{
+    content:'';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.9);
+}
+/*contenedor del formulario*/
+.flex-container{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:right;
+    margin: 0 20px;
+    align-items: center; 
+
+}
+.Titulo{
+    font-family: 'Dr Sugiyama', cursive;
+    font-size: 60px;
+    color:white;
+    margin-right:120px;
+    margin-top: 20px;
+}
+
+.lista{
+    margin-bottom: 65px;
+    color: white;
+    font-family: 'Hammersmith One', sans-serif;
+    margin-right: 20px;
+    cursor: pointer; /* Yessid: Para colocar el puntero */
+}
+.lista li{
+    list-style: none;   
+    margin: 0 20px; 
+    font-size: 20px;
+}
+ul{
+    display: inline-flex;
+}
+.lista ul li a{
+    text-decoration: none;
+    color: white;
+}
+.estrellas img{
+    display: inline-flex;
+    height: 50px;
+    width: 50px;
+    justify-content: center;
+    margin: 0 20px;
+    opacity: 0.8;
+}
+.form-container{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    /*border: red 5px solid;*/
+    align-items: center;
+}
+/*estilos de los div pertenecientes al form*/
+.form-container form div{
+    justify-content: center;
+    align-items: center;
+    margin-top:10px;
+    /*border:blue 5px solid;*/
+    
+}
+.labels{
+    color: white;
+    font-family: 'Hammersmith One', sans-serif;
+    font-size: 35px;
+}
+/*estilo al input txt busqueda*/
+.search input{
+    width: 900px;
+    border-radius: 5px;
+    outline: none;
+    height: 50px;
+    border: 0;
+    font-family: 'Hammersmith One', sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+/*estilo de los input tipo date */
+.date_entrada_salida input{
+    width: 198px;
+    border-radius: 5px;
+    height: 35px;
+    margin: 0 8px;
+    border: 0;
+    font-family: 'Hammersmith One', sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+/*estilo boton*/
+.btn_buscar input{
+    /*border: red 5px solid*/
+    border-radius: 7px;
+    background-color: #342727;
+    width: 320px;
+    height: 50px;
+    color: white;
+    font-family: 'Hammersmith One', sans-serif;
+    font-size: 30px;
+    margin-left: 270px;
+    margin-top: 20px;
+    border: 0;
+    cursor: pointer;
+}
+/*estilo de imagenes de redes sociales*/
+.Imgcontainer{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+.Imgcontainer .Imgelementos{
+    width: 80px;
+    height: 80px;
+    margin-top: 80px;
+    margin-right: 50px;   
+}

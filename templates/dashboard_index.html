@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio Dashboard</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/dashboard.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crosso  rigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dr+Sugiyama&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="dash_container">
+            <div class="menu_dashboard">
+                <ul>
+                    <!-- <li><a href="index.html">Inicio</a></li> -->
+                    <li><a href=""> Inicio</a></li>
+                    <li><a href=""> Cuenta </a></li>
+                </ul>
+                <input type="search" name="searchadmin" id="searchadmin" placeholder="Buscar">
+            </div>
+            <div class="menu_dash_nombre">
+                <h1>Yesid Rios</h1>
+                <P>Administrador</P>
+            </div>
+            <div class="menu_dashimg">
+                <img src="/static/img/pexels-rodnae-productions-7821936.jpg" alt="" id="imgadmin">
+            </div>
+        </div>
+    </header>
+    <section>
+        <article class="seccionfotos">
+            <div class="container_fotosdash">
+                <div class="Imgusuario">
+                    <a href="/gestionarusuario"><p>Gestión de usuarios</p></a>
+                </div>
+                <div class="Imgreserva">
+                    <a href="/gestionarreserva"><p>Gestión de reservas</p></a>
+                </div>
+                <div class="Imghabitaciones">
+                    <a href="/gestionarhabitaciones"><p>Gestión de habitaciones</p></a>
+                </div>
+            </div>
+        </article>
+        <article>
+            <div class="titulo_de_h1">
+                <h1>Número de reservas / mes</h1>
+            </div>
+            <div>
+                <canvas id="myChart" width="20" height="10"></canvas>
+            </div>
+        </article>
+    </section>
+</body>
+<script>
+    var ctx=document.getElementById("myChart").getContext("2d");
+    var myChart= new Chart(ctx,{
+        type:"bar",
+        data:{
+            labels:['Enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'],
+            datasets:[{
+                label:'Número/reservas',
+                data:[10,20,0,5,100,8,79,200,50,56,90,20],
+                backgroundColor:[
+                    'rgb(58, 103, 184)',
+                    'rgb(58, 103, 184)',
+                    'rgb(58, 103, 184)',
+                    'rgb(58, 103, 184)',
+                    'rgb(58, 103, 184)',
+                    'rgb(58, 103, 184)',
+                    'rgb(58, 103, 184)',
+                    'rgb(58, 103, 184)',
+                    'rgb(58, 103, 184)',
+                    'rgb(58, 103, 184)',
+                    'rgb(58, 103, 184)',
+                    'rgb(58, 103, 184)'
+                ]
+            }]
+        },
+        options:{
+            scales:{
+                yAxes:[{
+                    ticks:{
+                        beginAtZaero:true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+</html>

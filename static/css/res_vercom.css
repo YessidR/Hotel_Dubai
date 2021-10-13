@@ -1,0 +1,56 @@
+/*Importamos el tipo de letra a usar*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300&display=swap');
+
+/*Se reinicia los valores del html*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+.form{
+    z-index: 1;
+    background-color: #fff;
+    margin: auto; /*centra el recuadro*/
+    width: 60%; /*que el 60% de la imagen no sea mayor a 400px*/
+    max-width: 400px; /*ayuda a adaptar a dispositivos moviles*/
+    padding: 30px 25px; /*tamaño del recuadro*/
+    border-radius: 10px;
+    box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%); /*0 en x, 5px en Y, un blur de 10px y un sprit de -5px,color negro y 30% de transparencia*/
+    text-align: center; /*centra el texto*/
+}
+
+/*Titulo Dubai...*/
+.form_title{
+    color: #212121;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+/*ayuda a ccentrar el formulario gracias al flexbox de arriba*/
+/*recuadro del formulario*/
+
+/*contenedor de los input*/
+.form_container{
+    border: 0;
+    padding:15px;
+    margin-top: 25px;
+    display: grid; /*organiza en rejilla*/
+    gap: 2.5em /*espacio*/
+}
+
+/*Caracteristicas del boton*/
+.form_submit{
+    background: #3866f2;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    padding: .8em 0;
+    border: none;
+    border-radius: .5em;
+    cursor:pointer;
+	text-align: center;
+}
+
+

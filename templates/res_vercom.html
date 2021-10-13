@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar/Ver Comentarios</title>
+    <!-- <link rel="stylesheet" href="css/res_vercom.css"> -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/res_vercom.css')}}">
+	<style>
+		h2, h3 {
+			font-family: 'Roboto', sans-serif;
+		}
+	</style>
+</head>
+
+<body> <!-- background="./img/cama.jpg"> -->
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr>
+          <td width="50%" align="center" style="padding-top: 3%"><img src="/static/img/cama.jpg"
+                  alt="Es hora de viajar"
+                  width="650px" height="550px" style="border-radius: 10px;"/></td>
+          <td width="50%">
+            <form action="/action_page.php" class="form">
+          
+              <h2 class="form_title">Dubai Hotel and Residences</h2>
+              <h3> Habitación 003 </h3>
+              <br>
+              <div class="form_container">            
+                <a href="reservar"><input id="boton" class="form_submit" value="Reservar"></a>
+					<!-- type="submit"-->
+                <a href="comentarios"><input id="boton1" class="form_submit" value="Ver Comentarios"></a>
+              </div>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table> 
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionar habitaciones</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/gestionarhabitaciones.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crosso  rigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dr+Sugiyama&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="dash_container">
+            <div class="menu_dashboard">
+                <ul>
+                    <li><a href="/"> Inicio</a></li>
+                    <li><a href=""> Cuenta </a></li>
+                </ul>
+                <input type="search" name="searchadmin" id="searchadmin" placeholder="Buscar">
+            </div>
+            <div class="menu_dash_nombre">
+                <h1>Yesid Rios</h1>
+                <P>Administrador</P>
+            </div>
+            <div class="menu_dashimg">
+                <img src="/static/img/pexels-rodnae-productions-7821936.jpg" alt="" id="imgadmin">
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="container_habitaciones">
+            <div class="Titulo_hab">
+                <H1>Gestionar habitaciones</H1>
+            </div>
+            <div class="habitaciones"><!--contenedor principal de las habitaciones-->
+                <div class="box_habitaciones">
+                    <div class="Imghabita">
+                        <img src="/static/img/gestionarhabitaciones.jpg" alt="">
+                    </div>
+                    <div class="numero_habitacion">
+                        <p>Habitacion:405</p>
+                    </div>
+                    <div class="btn">
+                        <a href="/editar_hab"><input type="button" value="Editar" id="Editar"></a>
+                        <a href="/comentarios"><input type="button" value="Ver" id="Ver"></a>
+                        <a href=""><input type="button" value="Eliminar" id="Eliminar"></a>    
+                    </div>
+                </div>
+                <!--boto para egragar mas habitaciones-->
+                <div class="box_habitaciones">
+                    <div class="agregarhabita">
+                        <a href="/agregar_hab"><input type="image" src="/static/img/agregar-archivo.png"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar</title>
+    <!-- <link rel="stylesheet" href="css/calificar.css"> -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/calificar.css')}}">
+</head>
+
+<body> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  	<tbody>
+	<tr>
+      <td width="50%" align="center"><img src="img/cama3.jpg"
+			   alt="Es hora de viajar"
+			   width="650px" height="550px" /></td>
+      <td width="50%">
+		<form action="/action_page.php" class="form">
+       
+        <h2 class="form_title">Dubai Hotel and Residences</h2>
+        <h3> Habitación 001 </h3>
+        <!-- <p class="form_paragraph">¿Aun no tienes cuenta? <a href="/usuario_nuevo.html" class="form_link">Registrese aqui</a></p> -->
+
+        <div class="form_container2">
+            <h3> Califica tu experiencia: </h3>
+				  <div class="calificacion">
+					<input id="radio1" type="radio" name="estrellas" value="5">
+					<label for="radio1">★</label>
+					<input id="radio2" type="radio" name="estrellas" value="4">
+					<label for="radio2">★</label>
+					<input id="radio3" type="radio" name="estrellas" value="3">
+					<label for="radio3">★</label>
+					<input id="radio4" type="radio" name="estrellas" value="2">
+					<label for="radio4">★</label>
+					<input id="radio5" type="radio" name="estrellas" value="1">
+					<label for="radio5">★</label>
+				  </div>
+			</div>
+			
+		<div class="form_container">
+            <div class="form_group">
+                <textarea cols="50" rows="2" class="form_input" placeholder="¿Tiene algún comentario?"></textarea>
+                <span class="form_line"></span>
+            </div>
+            
+            <input type="submit" id="boton" class="form_submit" value="Continuar"> 
+        </div>
+    </form>
+		</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

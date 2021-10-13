@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel dubai</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/cs.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crosso  rigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dr+Sugiyama&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <header>
+        <div class="flex-container">
+            <div class="Titulo">
+                <h1>Hotel Dubai</h1>
+                <div class="estrellas">
+                    <img src="/static/img/estrella.png" alt="">
+                    <img src="/static/img/estrella.png" alt="">
+                    <img src="/static/img/estrella.png" alt="">
+                    <img src="static/img/estrella.png" alt="">
+                    <img src="static/img/estrella.png" alt="">
+                </div>
+            </div>
+            <div class="lista">
+                <ul>
+                    <!-- Yessid Fueron agregados para crear los link de los botones -->
+                    <li><a href="/" class="form_link">Inicio</a></li>
+                    <li><a href="login" class="form_link">Login</a></li>
+                    <li><a href="new_user" class="form_link">Registro</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="form-container">
+            <form action="">
+                <div class="search">
+                    <!-- aqui hicimos cambio -->
+                    <input type="text" id="search" name="search" placeholder="Buscar habitación">
+                </div>
+                <div class="date_entrada_salida">
+                    <label for="" class="labels">Entrada</label>
+                    <input type="date">
+                    <label for="" class="labels">Salida</label>
+                    <input type="date">
+                    <input type="number" placeholder="Cantidad">
+                </div>
+                <div class="btn_buscar">
+                    <a href="/buscar"><input type="button" value="Buscar"></a><!--aqui hay cambio-->
+                </div>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="Imgcontainer">
+            <div><img src="static/img/facebook.png" alt="" class="Imgelementos"></div>
+            <div><img src="static/img/instagram.png" alt="" class="Imgelementos"></div>
+            <div><img src="static/img/whatsapp.png" alt="" class="Imgelementos"></div>
+        </div>
+    </footer>
+</body>
+</html>

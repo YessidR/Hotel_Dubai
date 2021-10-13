@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+/*container general*/
+.dash_container{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    font-family: 'Hammersmith One', sans-serif;
+    /*border: orangered 1px solid;*/
+
+}
+/*contenedor de la listas y el input tipo search*/
+.menu_dashboard{
+    width: 980px;
+    background-color:#3a67b8;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Hammersmith One', sans-serif;
+    height: 68px;
+}
+.menu_dashboard li{
+    list-style: none;
+    margin: 17px 20px;
+    font-size: 23px;
+}
+.menu_dashboard ul{
+    display: inline-flex;
+    
+}
+.menu_dashboard input{
+    height: 35px;
+    width: 600px;
+    border-radius: 5px;
+    border: 0;
+    font-family: 'Hammersmith One', sans-serif;
+    font-size: 20px;
+    color: rgb(194, 192, 192);
+    /*border: red 1px solid;*/
+}
+/*contenedor de nombre de usuario y su rol*/
+.menu_dash_nombre{
+    /*border: rgb(30, 255, 0) 1px solid;*/
+    width: 310px;
+    height: 68px;
+}
+
+.menu_dash_nombre h1{
+    font-size: 21px;
+    text-align: right;
+    /*border: rgb(19, 1, 1) 1px solid;*/
+    margin-top: 9px;
+    margin-right: 8px;
+    color: black;
+}  
+.menu_dash_nombre p{
+    font-size: 20px;
+    text-align: right;
+    color: #c8cdd8;
+    margin-right: 8px;
+}
+/*------------------------contenedor de la imagen del admin---------------------------*/
+.menu_dashimg img{
+    height: 60px;
+    width: 60px;
+    border-radius: 28px;
+   /* border: red 1px solid;*/
+}
+.container_fotosdash{
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+/*---------------------------contenedor el article 1-----------------------*/
+.seccionfotos{
+    margin-top: 50px;
+    /*border: brown 1px solid;*/
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Hammersmith One', sans-serif;
+    color: white;
+}
+/*le doy estilo a las cajas de las img de la gestion*/
+.Imgusuario,.Imgreserva,.Imghabitaciones{
+    height: 200px;
+    width: 390px;
+    border-radius: 18px;
+    /* border:teal 1px solid; */
+}
+.Imghabitaciones{
+    background-image: url("../img/gestionarhabitaciones.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+.Imgusuario{
+    background-image: url("../img/gestorusuario.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+.Imgreserva{
+    background-image: url("../img/gestionarreserva.jpeg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+
+.container_fotosdash,.Imghabitaciones,.Imgreserva,.Imgusuario{
+    filter: brightness(90%);
+}
+
+.Imghabitaciones,.Imgreserva,.Imgusuario,a{
+    text-decoration: none;
+    color: white;
+}
+.titulo_de_h1{
+    text-align: center;
+    font-size: 70px;
+    color:#3a67b8;
+}
+article a p{
+    /*border: red 2px solid;*/
+    margin-top: 78px;
+}
