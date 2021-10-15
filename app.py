@@ -63,6 +63,11 @@ def gestionarU():
 def lista():
     return render_template ("listaReserva.html")
 
+@app.route("/indexuser", methods=["GET","POST"])
+def indexuser():
+    return render_template ("index_usuario.html")
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
