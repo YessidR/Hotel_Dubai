@@ -13,8 +13,7 @@
 <body> 
 <!-- <body background="/img/login.jpeg"> --> <!--Se agrega el backround por la imagen de fondo-->
 
-    <!-- <form action="/action_page.php" class="form"> -->
-        <form action="/" class="form">
+    <form action="indexuser" class="form">
        
         <h2 class="form_title">Dubai Hotel and Residences</h2>
         <!-- <p class="form_paragraph">¿Aun no tienes cuenta? <a href="/new_user.html" class="form_link">Registrese aqui</a></p> -->
@@ -36,7 +35,7 @@
 
             <div class="show_pass">
                 <input type="checkbox" onclick="myFunction()">
-                <a>   Mostrar Contraseña</a>
+                <a> Mostrar Contraseña</a>
 
                 <script> //Invocando java Script
                     function myFunction() {
@@ -51,14 +50,12 @@
 
             </div>
 
-            <input type="submit" id="boton" class="form_submit" value="Entrar"> <a href="/usuario_nuevo.html"></a> 
+            <a href="indexuser"><input type="submit" id="boton" class="form_submit" value="Entrar"></a> 
             <script>
                 //si oprimo el boton cambiar la ruta del action.php
                 //document.getElementById("boton").action="/usuario_nuevo.html";
             </script>
         </div>
-
-
     </form>
 </body>
 </html>
