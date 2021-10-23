@@ -7,7 +7,6 @@
     padding: 0;
     box-sizing: border-box
 }
-a:hover{background-color: #3866f2; color: cornsilk;}
 
 /*Las reglas del tipo de letra que usamos*/
 body{
@@ -16,7 +15,10 @@ body{
     background-size: cover; /*extiende la imagen*/
     display: flex; /*ayuda a centrar*/
     min-height: 100vh;
+    background-image: url(../img/login.jpeg); /*Imagen de fondo*/
+    background-repeat: no-repeat;
     z-index: -1;
+    backdrop-filter: brightness(0.65); /*Oscurece la imagen*/
 }
 
 /*ayuda a ccentrar el formulario gracias al flexbox de arriba*/
@@ -25,9 +27,9 @@ body{
     z-index: 1;
     background-color: #fff;
     margin: auto; /*centra el recuadro*/
-    width: 60%; /*que el 60% de la imagen no sea mayor a 400px*/
-    max-width: 400px; /*ayuda a adaptar a dispositivos moviles*/
-    padding: 30px 25px; /*tamaño del recuadro*/
+    width: 40%; /*que el 60% de la imagen no sea mayor a 400px*/
+    max-width: 350px; /*ayuda a adaptar a dispositivos moviles*/
+    padding: 15px 20px; /*tamaño del recuadro*/
     border-radius: 10px;
     box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%); /*0 en x, 5px en Y, un blur de 10px y un sprit de -5px,color negro y 30% de transparencia*/
     text-align: center; /*centra el texto*/
@@ -37,33 +39,34 @@ body{
 .form_title{
     color: #212121;
     font-size: 25px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 /*contenedor de los input*/
 .form_container{
-    border: 0;
-    padding:15px;
     margin-top: 25px;
     display: grid; /*organiza en rejilla*/
-    gap: 2.5em /*espacio*/
+    gap: 2em; /*espacio*/
+    text-align: center;
 }
 
 .form_group{
     position: relative; /*usar fixed para acomodar a un lado*/
     --color:#5757577e; /*se crea como variable y se repite*/
+    text-align: center;
 }
 
 .form_input{
-    width:100%; /*tamaño de la linea*/
+    width:90%; /*tamaño de la linea*/
     background: none; /*sin fondo*/
     color: #706c6c; /*color de la linea*/
     font-size: 1rem; /*tamaño de la letra*/
-    padding: .4em .2em; /*espacio entre letra y linea*/
+    padding: .3em .3em; /*espacio entre letra y linea*/
     border: none; /*Quita el cuadro de input*/
     outline: none; /*Quita el cuadro de input*/
     border-bottom: 1px solid var(--color); /*Coloca la linea de esccribir*/
     font-family: 'Roboto', sans-serif;
+    text-align: left;
 }
 
 /*la letra dentro del recuadreo*/
@@ -75,6 +78,7 @@ body{
     left: 5px;
     transform: translateY(10px); /*baja texto nombre*/
     transition: transform .5s, color .3s;
+    padding-left: 15px;
 }
 
 /*se vuelve mas oscuro al activar el input*/
@@ -90,16 +94,10 @@ body{
     color: #3866f2;
 }
 
-/*Show password*/
-.show_pass{
-    text-align: left;
-    font-size: 15px;
-    margin-top: -12px;
-}
-
 /*Caracteristicas del boton*/
 .form_submit{
     background: #3866f2;
+    background-size: 30%;
     color: #fff;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
@@ -108,6 +106,7 @@ body{
     border: none;
     border-radius: .5em;
     cursor:pointer;
+    padding-top: .8em;
 }
 
 /*No se que hace*/

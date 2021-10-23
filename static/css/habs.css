@@ -7,7 +7,6 @@
     padding: 0;
     box-sizing: border-box
 }
-a:hover{background-color: #3866f2; color: cornsilk;}
 
 /*Las reglas del tipo de letra que usamos*/
 body{
@@ -50,7 +49,7 @@ body{
 }
 
 .form_group{
-    position: relative; /*usar fixed para acomodar a un lado*/
+    /*position: relative; /*usar fixed para acomodar a un lado*/
     --color:#5757577e; /*se crea como variable y se repite*/
 }
 
@@ -68,9 +67,8 @@ body{
 
 /*la letra dentro del recuadreo*/
 .form_label{
-    color: var(--color);
+    color: #0f0f0f;
     cursor: pointer;
-    position: absolute;
     top: o;
     left: 5px;
     transform: translateY(10px); /*baja texto nombre*/
@@ -99,6 +97,7 @@ body{
 
 /*Caracteristicas del boton*/
 .form_submit{
+	width: 100px;
     background: #3866f2;
     color: #fff;
     font-family: 'Roboto', sans-serif;
@@ -106,7 +105,7 @@ body{
     font-size: 1rem;
     padding: .8em 0;
     border: none;
-    border-radius: .5em;
+    border-radius: 1.5em;
     cursor:pointer;
 }
 
