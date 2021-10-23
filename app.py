@@ -52,7 +52,7 @@ def buscar():
     return "LLego hasta el final"
 
 #Diana (creado para hacer pruebas de habitación)
-@app.route("/reservar/<numHab>")
+@app.route("/ver/<numHab>")
 def busqueda(numHab):
     return render_template (str(numHab)+".html")
 
