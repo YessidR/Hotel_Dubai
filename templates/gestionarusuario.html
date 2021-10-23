@@ -19,7 +19,7 @@
             <div class="menu_dashboard">
                 <ul>
                     <li><a href="/"> Inicio</a></li>
-                    <li><a href=""> Cuenta </a></li>
+                    <li><a href="/">Cerrar sesion</a></li>
                 </ul>
                 <input type="search" name="searchadmin" id="searchadmin">
             </div>
@@ -39,21 +39,19 @@
                     <h1> Gestionar usuarios</h1>
                 </div>
                 <div class="fondo_azul">
+                    {% for r in row %}
                     <div class="elementos_user">
-                        <img src="/static/img/joven-confiado_1098-20868.webp" alt="">
-                        <p class="nombre">Carlos andres ramirez villanueva</p> <p class="codigo">Cod:12</p>
-                        <a href=""><input type="button" value="Editar" id="Editar"></a> <a href=""><input type="button" value="Ver" id="Ver"></a> <a href=""><input type="button" value="Eliminar" id="Eliminar"></a>
+                        <table style="width: 100%; text-align: left">
+                            <tr>
+                                <td style="width: 5%;"><img src="/static/img/joven-confiado_1098-20868.webp" alt=""></td>
+                                <td style="width: 40%;"><p class="nombre">Nombre: {{ r["nombre"] }}</p></td>
+                                <td><p class="codigo">Codigo: {{ r["idusuario"] }}</p></td>
+                                <td style="width: 10%; padding-left: 0.5%;"><a href="/admin/dashboard/usuarios/editar"><input type="button" value="Editar" id="Editar"></a></td>
+                                <td style="width: 10%; padding-left: 0.25%;"><a href="/admin/dashboard/usuarios/delete"><input type="button" value="Eliminar" id="Eliminar"></a></td>
+                            </tr>
+                        </table>        
                     </div>
-                    <div class="elementos_user">
-                        <img src="/static/img/joven-confiado_1098-20868.webp" alt="">
-                        <p class="nombre">Carlos andres ramirez villanueva</p> <p class="codigo">Cod:12</p>
-                        <a href=""><input type="button" value="Editar" id="Editar"></a> <a href=""><input type="button" value="Ver" id="Ver"></a> <a href=""><input type="button" value="Eliminar" id="Eliminar"></a>
-                    </div>
-                    <div class="elementos_user">
-                        <img src="/static/img/joven-confiado_1098-20868.webp" alt="">
-                        <p class="nombre">Carlos andres ramirez villanueva</p> <p class="codigo">Cod:12</p>
-                        <a href=""><input type="button" value="Editar" id="Editar"></a> <a href=""><input type="button" value="Ver" id="Ver"></a> <a href=""><input type="button" value="Eliminar" id="Eliminar"></a>
-                    </div>
+                    {% endfor%}                        
                 </div>
             </div>
         </div>

@@ -9,44 +9,41 @@
 </head>
 
 <body> 
+    
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  	<tbody>
+  	<tbody>   
+    <tr><td colspan="2"><p style="text-align: right;vertical-align:top; margin:5px 25px;font-size:15px"><a href="/" style="text-decoration:none;">Cerrar sesión</a></p></td></tr>
 	<tr>
       <td width="50%" align="center"><img src="/static/img/cama.jpg"
 			   alt="Es hora de viajar"
 			   width="650px" height="550px" style="border-radius: 10px;"/></td>
       <td width="50%">
-		<form action="/action_page.php" class="form">
+		<form action="/reservar/listar" class="form">
        
-        <h2 class="form_title">Dubai Hotel and Residences</h2>
-        <h3> Habitación 003 </h3>
-        <!-- <p class="form_paragraph">¿Aun no tienes cuenta? <a href="/usuario_nuevo.html" class="form_link">Registrese aqui</a></p> -->
+            <h2 class="form_title">Dubai Hotel and Residences</h2>
+            <h3> Habitación 003 </h3>
+            <!-- <p class="form_paragraph">¿Aun no tienes cuenta? <a href="/usuario_nuevo.html" class="form_link">Registrese aqui</a></p> -->
 
-        <div class="form_container">
-            <h3> Datos de la Reserva: </h3>
+            <div class="form_container">
+                <h3> Datos de la Reserva: </h3>
 
-             <div class="form_group">
-                <input type="text" id="user" class="form_input" placeholder=" ">
-                <label for="user" class="form_label">Nombre de usuario:</label>
-                <span class="form_line"></span>
-            </div>
-
-            <div class="form_group">
-                <input type="text" id="number" class="form_input" placeholder=" ">
-                <label for="number" class="form_label">No de personas:</label>
-                <span class="form_line"></span>
-            </div>
-
-            <div class="form_group">
-                <label for="fecha" class="form_label">Fecha:</label>
-            </div>
-
-            <div class="form_group">
-                <input type="date" id="fecha" class="form_input" placeholder=" ">
-            </div>
+                <div class="form_group">
+                    <label for="fecha" class="form_label">Fecha ingreso:</label>
+                </div>
             
-            <input type="submit" id="boton" class="form_submit" value="Continuar"> 
-        </div>
+                <div class="form_group">
+                    <input type="date" id="fecha" class="form_input" placeholder=" ">
+                </div>
+
+                <div class="form_group">
+                    <label for="fecha" class="form_label">Fecha salida:</label>
+                </div>
+                <div class="form_group">
+                    <input type="date" id="fecha" class="form_input" placeholder=" ">
+                </div>
+                
+                <input type="submit" id="boton" class="form_submit" value="Continuar"> 
+            </div>
     </form>
 		</td>
     </tr>

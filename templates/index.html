@@ -12,6 +12,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet"> 
+    
+    <!-- Yessid: Iconos de redes sociales -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 <body>
     <header>
@@ -31,36 +35,40 @@
                     <!-- Yessid Fueron agregados para crear los link de los botones -->
                     <li><a href="/" class="form_link">Inicio</a></li>
                     <li><a href="login" class="form_link">Login</a></li>
-                    <li><a href="new_user" class="form_link">Registro</a></li>
+                    <li><a href="register" class="form_link">Registro</a></li>
                 </ul>
             </div>
         </div>
     </header>
     <section>
         <div class="form-container">
-            <form action="">
+            
+            <!-- Yessid: Accion de busqueda -->
+            <form action="/buscar" method="POST">
                 <div class="search">
-                    <!-- aqui hicimos cambio -->
-                    <input type="text" id="search" name="search" placeholder="Buscar habitación">
+                    <h1>Seleccione el tipo de habitación</h1>
                 </div>
-                <div class="date_entrada_salida">
-                    <label for="" class="labels">Entrada</label>
-                    <input type="date">
-                    <label for="" class="labels">Salida</label>
-                    <input type="date">
-                    <input type="number" placeholder="Cantidad">
+                
+                <div class="checkcaracteristicas">
+                    <input class="busqueda" type="radio" name="tipo" value="1" >Tipo Sencilla      
+                    <input class="busqueda" type="radio" name="tipo" value="2" >Tipo Doble
+                    <p></p>
                 </div>
+                <p id="mensaje"></p>
                 <div class="btn_buscar">
-                    <a href="/buscar"><input type="button" value="Buscar"></a><!--aqui hay cambio-->
+                    <input name="tipo" onmouseover="buscarHab()" value="Buscar" type="submit" >
+                    
                 </div>
             </form>
         </div>
     </section>
     <footer>
-        <div class="Imgcontainer">
-            <div><img src="static/img/facebook.png" alt="" class="Imgelementos"></div>
-            <div><img src="static/img/instagram.png" alt="" class="Imgelementos"></div>
-            <div><img src="static/img/whatsapp.png" alt="" class="Imgelementos"></div>
+        <!-- Yessid: Iconos de redes sociales -->
+        <div class="socialmedia">
+            <p class="socialmedia_legend">Siguenos en:</p>
+            <a href="https://www.facebook.com/Hotel-Dubai-109350794865221"><i class='socialmedia_icon bx bxl-facebook-circle'></i></a>
+            <a href="https://twitter.com/HotelDubai04"><i class='socialmedia_icon bx bxl-twitter'></i></a>
+            <a href="https://www.instagram.com/proyhdubai"><i class='socialmedia_icon bx bxl-instagram'></i></a>
         </div>
     </footer>
 </body>

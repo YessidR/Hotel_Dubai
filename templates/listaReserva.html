@@ -5,54 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado Reservas</title>
-    <link rel="stylesheet" href="css/listaReserva.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/listaReserva.css')}}">
 </head>
 
 <body> 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   	<tbody>
 	<tr>
-      <td width="50%" align="center"><img src="img/login.jpeg"
+      <td width="50%" align="center"><img src="/static/img/login.jpeg"
 			   alt="Es hora de viajar"
 			   width="650px" height="550px" /></td>
       <td width="50%">
-            <form action="/action_page.php" class="form">
+            <form action="" class="form">
                 <h2 class="form_title">Dubai Hotel and Residences</h2>
 
                 <div class="form_container">
                     <h4> Esta es la lista de tus reservas: </h4>
 
                     <div class="form_group">
-                        <img src="img/cama1.jpg" alt="Habitacion" style="width: 150px; height: 100px; float: left; padding: 5px;">
+                        <img src="/static/img/cama.jpg" alt="Habitacion" style="width: 150px; height: 100px; float: left; padding: 5px;">
                         <label>★★★★★</label>
 						<br>
                         <label class="form_label">Descripción</label> 
                         <br>
                         <label class="form_label">Hab. 001</label>
                         <br>
-                        <input type="submit" id="boton" class="form_submit" value="Editar"> <input type="submit" id="boton" class="form_submit" value="Calificar"> 
+                        <!-- <input type="submit" id="boton" class="form_submit" value="Editar">--><a href="reservar/crear/comentarios"><input type="button" id="boton" class="form_submit" value="Calificar"></a>  
                     </div>
 
                     <div class="form_group">
-                        <img src="img/cama2.jpg" alt="Habitacion" style="width: 150px; height: 100px; float: left; padding: 5px;">
+                        <img src="/static/img/cama.jpg" alt="Habitacion" style="width: 150px; height: 100px; float: left; padding: 5px;">
                         <label>★★★★★</label>
 						<br>
                         <label class="form_label">Descripción</label> 
                         <br>
                         <label class="form_label">Hab. 002</label>
                         <br>
-                        <input type="submit" id="boton" class="form_submit" value="Editar"> <input type="submit" id="boton" class="form_submit" value="Calificar"> 
+                        <!-- <input type="submit" id="boton" class="form_submit" value="Editar">--> <a href="reservar/crear/comentarios"><input type="button" id="boton" class="form_submit" value="Calificar"></a> 
                     </div>
 
                     <div class="form_group">
-                        <img src="img/cama.jpg" alt="Habitacion" style="width: 150px; height: 100px; float: left; padding: 5px;">
+                        <img src="/static/img/cama.jpg" alt="Habitacion" style="width: 150px; height: 100px; float: left; padding: 5px;">
                         <label>★★★★★</label>
 						<br>
                         <label class="form_label">Descripción</label> 
                         <br>
                         <label class="form_label">Hab. 003</label>
                         <br>
-                        <input type="submit" id="boton" class="form_submit" value="Editar"> <input type="submit" id="boton" class="form_submit" value="Calificar"> 
+                        <a href="reservar/crear/comentarios"><input type="button" id="boton" class="form_submit" value="Calificar"></a> 
                     </div>
                 </div>
             </form>

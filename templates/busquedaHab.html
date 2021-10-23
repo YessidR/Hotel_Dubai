@@ -23,39 +23,20 @@
                 <div class="form_container">
                     <h4> Tenemos las siguientes opciones para tí: </h4>
 
-                    <div class="form_group">
-                        <img src="/static/img/cama3.jpg" alt="Habitacion" style="width: 150px; height: 100px; float: left; padding: 5px; border-radius: 10px;">
-                        <label>★★★★★</label>
-						<br>
-                        <label class="form_label">Descripción</label> 
-                        <br>
-                        <label class="form_label">Hab. 001</label>
-                        <br>
-						<a href="res_vercom"><input id="boton" class="form_submit" value="Ver"></a>
-                    </div>
-					<!-- type="submit"-->
+                    <!-- Yessid: Ciclo for para mostrar disponibles -->
+                    {% for r in row %}
 
                     <div class="form_group">
-                        <img src="/static/img/cama.jpg" alt="Habitacion" style="width: 150px; height: 100px; float: left; padding: 5px; border-radius: 10px;">
-                        <label>★★★★★</label>
-						<br>
-                        <label class="form_label">Descripción</label> 
-                        <br>
-                        <label class="form_label">Hab. 002</label>
-                        <br>
-                        <a href="res_vercom"><input id="boton1" class="form_submit" value="Ver"></a>
+                        <scroll-container>
+                            <img src="/static/img/cama3.jpg" alt="Habitacion" style="width: 150px; height: 100px; float: left; padding: 5px; border-radius: 10px;">
+                            <label class="form_label">Habitación {{ r["idhabitacion"] }}</label>
+                            <br>
+                            <a href="reservar/{{ r['idhabitacion'] }}"><input id="boton" class="form_submit" value="ver"></a> 
+                        </scroll-container>
                     </div>
 
-                    <div class="form_group">
-                        <img src="/static/img/cama.jpg" alt="Habitacion" style="width: 150px; height: 100px; float: left; padding: 5px;border-radius: 10px;"/>
-                        <label>★★★★★</label>
-						<br>
-                        <label class="form_label">Descripción</label> 
-                        <br>
-                        <label class="form_label">Hab. 003</label>
-                        <br>
-                        <a href="res_vercom"><input id="boton2" class="form_submit" value="Ver"></a> 
-                    </div>
+                    {% endfor%}
+
                 </div>
             </form>
 		</td>

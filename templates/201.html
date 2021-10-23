@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habitación 201</title>
+    <link rel="stylesheet" href="hab101.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/habs.css')}}">
+</head>
+
+<body> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  	<tbody>
+	<tr>
+        <td width="50%" align="center"><img src="../static/img/hab_senc.jpg"
+            alt="Es hora de viajar"
+            width="650px" height="550px" /></td>
+   <td width="50%">
+         <form action="/action_page.php" class="form">
+             <h2 class="form_title">Dubai Hotel and Residences</h2>
+
+             <div class="form_container">
+                 <h3> Habitación 201 </h3>
+
+                 <div class="form_group">
+                     <h4 style="text-align: left;"> Descripción: </h4>
+                     <p style="text-align: justify;">
+                         Una hermosa habitación para el huésped que le gusta viajar libre y vivir cómodamente.
+                         Te presentamos un alojamiento acogedor a buen precio, en las que
+                         tendrás acceso a todos nuestros servicios y sus modernos espacios (12 m²) 
+                         con un mobiliario elegante y confortable. 
+                         Disfrute de una experiencia en una habitación con Wifi Easy Connection, ducha independiente 
+                         y una cama sencilla adaptada a todas sus necesidades. Reserve ahora, al mejor precio.
+                     </p>
+                     <br>
+                    
+                        <h4 style="text-align: left;"> Características: </h4>
+                        <p>
+                            <ul style="text-align: left;">
+                                <li>Wifi: sí.</li>
+                                <li>Cama Sencilla: sí.</li>
+                                <li>Ducha Independiente: sí.</li>
+                                <li>Piso Térmico: no.</li>
+                                <li>Jacuzzi: no.</li>
+                            </ul>
+                        </p>
+                        <br>
+                        <input type="submit" id="boton" class="form_submit" value="Reservar"> <a href="./reservar.html"></a> 
+                    </div>
+                </div>
+            </form>
+		</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
