@@ -107,6 +107,7 @@ body{
     border-radius: .5em;
     cursor:pointer;
     padding-top: .8em;
+    width: 200px
 }
 
 /*No se que hace*/
