@@ -18,10 +18,13 @@
 			   alt="Es hora de viajar"
 			   width="650px" height="550px" style="border-radius: 10px;"/></td>
       <td width="50%">
-		<form action="/reservar/listar" class="form">
+		<!-- <form action="/reservar/listar" class="form" method="POST"> -->
+            <form action="/reservar/crear" class="form" method="POST"></form>
        
             <h2 class="form_title">Dubai Hotel and Residences</h2>
-            <h3> Habitación 003 </h3>
+            <!-- {% for r in row %} -->
+            <h3> Habitación {{ ['idhabitacion'] }} </h3>
+            <!-- {% endfor%} -->
             <!-- <p class="form_paragraph">¿Aun no tienes cuenta? <a href="/usuario_nuevo.html" class="form_link">Registrese aqui</a></p> -->
 
             <div class="form_container">
@@ -32,17 +35,18 @@
                 </div>
             
                 <div class="form_group">
-                    <input type="date" id="fecha" class="form_input" placeholder=" ">
+                    <input type="date" id="fechaingreso" name="fechaingreso" class="form_input" placeholder=" ">
                 </div>
 
                 <div class="form_group">
                     <label for="fecha" class="form_label">Fecha salida:</label>
                 </div>
                 <div class="form_group">
-                    <input type="date" id="fecha" class="form_input" placeholder=" ">
+                    <input type="date" id="fechasalida" name="fechasalida" class="form_input" placeholder=" ">
                 </div>
                 
-                <input type="submit" id="boton" class="form_submit" value="Continuar"> 
+                <!-- <input type="submit" id="boton" class="form_submit" value="Continuar">  -->
+                <ul> <input class="form_submit" type="submit" value="Continuar" style="width:50%"></ul>
             </div>
     </form>
 		</td>

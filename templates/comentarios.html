@@ -17,32 +17,31 @@
 			   alt="Es hora de viajar"
 			   width="650px" height="550px" style="border-radius: 10px;"/></td>
       <td width="50%">
-		<form action="reservar/comentar" class="form">
-            <h2 class="form_title">Dubai Hotel and Residences</h2>
-            <h3> Habitación 003 </h3>
-            <br>
+		<form action="reservar/comentar" class="form" method="POST">
+            <h2 class="form_title">Dubai Hotel and Residences </h2>
+
+            <h3>Habitación {{ x }}</h3> 
+
+            {% for r in row %}
+
+            
 
             <div class="form_container">
 
                 <div class="form_group">
-                    <label for="user" class="form_label">Usuario: Camilo Sandoval</label>
-                    <br>
-                    <label for="user" class="form_label">Puntuación: ★★★★★ </label>
-                    <br>
-                    <label for="user" class="form_label">Comentarios: El servicio es excelente ...</label>               
-                </div>
-            
-                <div class="form_group">
-                    <label for="user" class="form_label">Usuario: Yessid Rios</label>
-                    <br>
-                    <label for="user" class="form_label">Puntuación: ★★★★★ </label>
-                    <br>
-                    <label for="user" class="form_label">Comentarios: El servicio es excelente ... </label>               
-                </div>
+                    <label class="form_label">{{ r["user"] }}</label>
+                    <label class="form_label">{{ r["comentario"] }}</label>
 
-                <a href="reservar/comentar"><input id="boton" class="form_submit" value="Regresar"></a>
-                <!-- type="submit"-->
+                </div>
             </div>
+            {% endfor %}
+
+            <br>
+            <!-- Accion para regresar a la página anterior -->
+            <input type="button" class="form_submit" width="150px" value=" Regresar " onClick="history.go(-1);">
+                <!-- <a href="/reservar/comentar"><input id="boton" class="form_submit" value="Regresar" name="103></a> -->
+                <!-- type="submit"-->
+        </div>
     </form>
 		</td>
 		</tr>

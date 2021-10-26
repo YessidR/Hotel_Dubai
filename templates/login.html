@@ -13,22 +13,24 @@
 <body> 
 <!-- <body background="/img/login.jpeg"> --> <!--Se agrega el backround por la imagen de fondo-->
 
-    <form action="/index/logueado" class="form">
-       
+    <!-- <form action="/index/logueado" method="POST" class="form"> -->
+        <form action="/login" class="form" method="POST">
+        
+
         <h2 class="form_title">Dubai Hotel and Residences</h2>
         <!-- <p class="form_paragraph">¿Aun no tienes cuenta? <a href="/new_user.html" class="form_link">Registrese aqui</a></p> -->
         <p class="form_paragraph">¿Aun no tienes cuenta? <a href="/register" class="form_link">Registrese aqui</a></p>
 
         <div class="form_container">
              <div class="form_group">
-                <input type="text" id="user" class="form_input" placeholder=" ">
+                <input type="text" name="user" id="user" class="form_input" placeholder=" ">
                 <label for="user" class="form_label">Nombre de usuario:</label>
                 <span class="form_line"></span>
             </div>
 
             <div class="form_group">
-                <!-- <input type="password" id="password" class="form_input" placeholder=" " minlength="8" title="Debe contener al menos 8 caracteres, entre estos una mayuscula, una minuscula y un carcter especial" required> -->
-                <input type="password" id="password" class="form_input" placeholder=" " name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos 8 carácteres, entre ellos una mayúscula, una minúscula y un carácter especial" required>
+                <!-- <input type="password" id="password" class="form_input" placeholder=" " name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos 8 carácteres, entre ellos una mayúscula, una minúscula y un carácter especial" required> -->
+                <input type="password" id="password" name="psw" class="form_input" placeholder=" ">
                 <label for="password" class="form_label">Contraseña:</label>
                 <span class="form_line"></span>
             </div>
@@ -47,14 +49,10 @@
                       }
                     }
                 </script>
-
             </div>
 
-            <a href="/index/logueado"><input type="submit" id="boton" class="form_submit" value="Entrar"></a> 
-            <script>
-                //si oprimo el boton cambiar la ruta del action.php
-                //document.getElementById("boton").action="/usuario_nuevo.html";
-            </script>
+            <ul><input type="submit" id="boton" class="form_submit" value="Iniciar Sesion"></ul>
+            <!-- <a href="/index/logueado"><input type="submit" id="boton" class="form_submit" value="Entrar"></a>  -->
         </div>
     </form>
 </body>

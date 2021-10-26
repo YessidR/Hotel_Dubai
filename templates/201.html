@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habitación 201</title>
-    <link rel="stylesheet" href="hab101.css">
     <link rel="stylesheet" href="{{url_for('static', filename='css/habs.css')}}">
 </head>
 
@@ -17,7 +16,7 @@
             alt="Es hora de viajar"
             width="650px" height="550px" /></td>
    <td width="50%">
-         <form action="/action_page.php" class="form">
+         <form action="/action_page.php" class="form" method="POST">
              <h2 class="form_title">Dubai Hotel and Residences</h2>
 
              <div class="form_container">
@@ -46,7 +45,21 @@
                             </ul>
                         </p>
                         <br>
-                        <input type="submit" id="boton" class="form_submit" value="Reservar"> <a href="./reservar.html"></a> 
+                        <div class="form_container">         
+                            
+                            <!-- Colocar condicional para activar cuando la sesion este iniciada, y sino, enviar a pagina de login -->
+                            <!-- <a href="/reservar/crear"><input id="boton" class="form_submit" value="Reservar"></a> -->
+                            <a href="/login"><input id="boton1" class="form_submit" value="Reservar"></a>
+                            <!-- type="submit"-->
+                            <a href="/reservar/comentarios/listar"><input id="boton" class="form_submit" value="Comentarios"></a>
+
+                            <!-- <script>
+                                if (login.login == 1){
+                                    document.boton1 = "/reservar/crear"
+                                }
+                            </script> -->
+
+                        </div>
                     </div>
                 </div>
             </form>

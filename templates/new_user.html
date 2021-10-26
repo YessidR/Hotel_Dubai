@@ -10,45 +10,47 @@
 <body background="/img/login.jpeg"> 
 <!-- <body background="/img/login.jpeg"> --> <!--Se agrega el backround por la imagen de fondo-->
 
-    <form action="login" class="form">
+    <form action="/register" class="form" method ='POST'>
 
         <h2 class="form_title">Dubai Hotel and Residences</h2>
         <!-- <p class="form_paragraph">¿Aun no tienes cuenta? <a href="#" class="form_link">Registrese aqui</a></p> -->
 
         <div class="form_container">
             <div class="form_group">
-                <input type="text" id="name" class="form_input" placeholder=" ">
+                <input type="text" id="name" name="nombre" class="form_input" placeholder=" ">
                 <label for="user" class="form_label">Nombre:</label>
                 <span class="form_line"></span>
             </div>
 
             <div class="form_group">
-                <input type="text" id="user" class="form_input" placeholder=" ">
+                <input type="text" id="user" name="user" class="form_input" placeholder=" ">
                 <label for="user" class="form_label">Usuario:</label>
                 <span class="form_line"></span>
             </div>
 
             <div class="form_group">
-                <input type="text" id="email" class="form_input" placeholder=" ">
+                <input type="text" id="email" name="email" class="form_input" placeholder=" ">
                 <label for="user" class="form_label">Correo electrónico:</label>
                 <span class="form_line"></span>
             </div>
 
             <div class="form_group">
-                <!-- <input type="password" id="password" class="form_input" placeholder=" "> -->
-                <input type="password" id="password" class="form_input" placeholder=" " name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos 8 carácteres, entre ellos una mayúscula, una minúscula y un carácter especial" required>
+                <input type="password" id="password" name="pass1" class="form_input" placeholder=" ">
+                <!-- <input type="password" id="password" name="pass1" class="form_input" placeholder=" " name="psw" pattern="(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos 8 carácteres, entre ellos una mayúscula, una minúscula y un carácter especial" required> -->
                 <label for="password" class="form_label">Contraseña:</label>
                 <span class="form_line"></span>
             </div>
 
             <div class="form_group">
-                <!-- <input type="password" id="password1" class="form_input" placeholder=" "> -->
-                <input type="password" id="password1" class="form_input" placeholder=" " name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos 8 carácteres, entre ellos una mayúscula, una minúscula y un carácter especial" required>
+                <input type="password" id="password1" name="pass2" class="form_input" placeholder=" ">
+                <!-- <input type="password" id="password1" name="pass2" class="form_input" placeholder=" " name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos 8 carácteres, entre ellos una mayúscula, una minúscula y un carácter especial" required> -->
+                <!-- <input type="password" id="password1" name="pass2" class="form_input" placeholder=" " name="psw" pattern="(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos 8 carácteres, entre ellos una mayúscula, una minúscula y un carácter especial" required> -->
                 <label for="password" class="form_label">Repetir contraseña:</label>
                 <span class="form_line"></span>            
             </div>
 
-            <a href="login"><input type="submit" class="form_submit" value="Continuar" style="width:50%"></a>
+            <!-- <a href="login"><input type="submit" class="form_submit" value="Continuar" style="width:50%"></a> -->
+            <ul> <input class="form_submit" type="submit" value="Continuar" style="width:50%"></ul>
         </div>
 
 
