@@ -17,6 +17,7 @@ class log:  # Clase para almacenar valores de las dof. opciones
     user  = int(0)  # Id Usuario en numero
     nombre = str(0) # nombre Usuario para ver el perfil
     numHab = int(0) # Almacena el numero de la habitación
+    rol = str(0) # None para usuario final, 1 para admin
 '''------------------------------------------------------------'''
 
 # Inicio de todo....
@@ -38,6 +39,7 @@ def login():
                 cur   = con.cursor()
                 query = cur.execute("SELECT password FROM usuario WHERE user=?",[user]).fetchone()
                 idu = cur.execute("SELECT idusuario FROM usuario WHERE user=?",[user]).fetchone()
+                rol = cur.execute("SELECT rol FROM usuario WHERE user=?",[user]).fetchone()
                 if query!=None:
                     print ("Entramos al query vacío L.44")
                     if (query[0]==password):
@@ -46,11 +48,13 @@ def login():
                         log.login=1 # Prueba con DIANA / YESSID #Sesion Iniciada
                         log.user = idu[0] # Id usuario
                         log.nombre = user
+                        log.rol = rol[0] # None para usuario final, 1 para admin
                         print("el usuario es: ",log.user)
                         print("El nombre de usuario es: ",log.nombre)
+                        print ("El rol del usuario es: ", log.rol)
 
                         #return redirect("/index") # Si hay error, borrar lo de abajo...
-
+                        ''' Antes de inventar con el rol....
                         if int(log.numHab) > 0: # Yessid: Redirecciona a la página de la habitación vista...
                             numHab = str(log.numHab)
                             return redirect ("/ver/"+numHab)
@@ -63,8 +67,26 @@ def login():
                     print ("Usuario no existe L.59")
                     return "El usuario NO existe"
         except Error:
+            print(Error) '''
+                        #Aquí inicia la validación de usuario
+                        if rol[0] == "admin":
+                            return redirect ("/admin/dashboard")
+                        else: 
+                            if int(log.numHab) > 0: # Yessid: Redirecciona a la página de la habitación vista...
+                                numHab = str(log.numHab)
+                                return redirect ("/ver/"+numHab)
+                            else: # Yessid: Redirecciona al login si no hay habitación vista
+                                return redirect("/index")
+                    else:
+                        print ("Clave incorrecta L.56")
+                        return "Credenciales incorrectas"
+                else:
+                    print ("Usuario no existe L.59")
+                    return "El usuario NO existe"
+        except Error:
             print(Error)
 
+    #Hasta acá borrar si existe error
     if 'user' in session:
         print ("usuario en sesion??? L.65")
         if int(log.numHab)>0: # --> Vio hab (103)
@@ -83,6 +105,7 @@ def logout():
         log.nombre = 0
         log.user = 0
         log.numHab = 0
+        log.rol = "0"
         session.clear()
         print ("log.login es: ",log.login)
         print ("log.nombre es: ", log.nombre)
@@ -207,7 +230,7 @@ def crear():
             with sqlite3.connect("dbh.db") as con:
                 cur    = con.cursor()
                 # sql    = "SELECT * FROM usuario WHERE user='{}'".format(log.login)
-                
+
                 cur.execute("INSERT INTO reserva(idusuario, fechaingreso, fechasalida, idhabitacion) VALUES (?,?,?,?)",(log.user,fechaingreso,fechasalida, log.numHab))
                 con.commit()
                 print ("Guardado con éxito")
@@ -235,8 +258,7 @@ def listar():
         print("error en el metodo")
     return render_template ("listaReserva.html", row=row, nombre=log.nombre)
 
-# ____________________________________________________________
-
+# ---------------------------------------------------------- #
 @app.route("/reservar/comentar", methods=["GET", "POST"])
 def res_vercom():
     return render_template ("res_vercom.html")
@@ -246,11 +268,17 @@ def res_vercom():
 def comentarios():
     return render_template ("calificar.html")
 
-
 #----------------------------------------admin/index------------------------------------
+# Yessid --> Validacion admin/user
 @app.route("/admin/dashboard", methods=["GET", "POST"])
 def dashboard():
-    return render_template("dashboard_index.html")
+    print ('el rol del usuario es: ', log.rol)
+    if log.rol == "0":
+        return redirect("/")
+    elif log.rol == None:
+        return redirect("/index")
+    else:
+        return render_template("dashboard_index.html", nombre=log.nombre)
 
 #---------------------------------------admin/habitaciones-------------------------------
 @app.route("/admin/dashboard/habitaciones", methods=["GET", "POST"])
@@ -270,7 +298,6 @@ def delete():
     return render_template ("gestionarhabitaciones.html")
 
 #-----------------------------------------admin/Reservas------------------------------
-
 @app.route("/admin/dashboard/reservas/listar", methods=["GET", "POST"])
 def reserva_listar():
     return render_template ("gestionarreserva.html")
@@ -284,8 +311,7 @@ def reserva_delete():
     return render_template ("gestionarreserva.html")
 
 #-----------------------------------------admin/Usuarios-------------------------------------------------
-
-# Camilo --> (En proceso)
+# Camilo --> (En proceso) Lista usuarios registrados en la vista admin
 @app.route("/admin/dashboard/usuarios/listar", methods=["GET", "POST"])
 def usuario_listar():
     if request.method == 'GET':
