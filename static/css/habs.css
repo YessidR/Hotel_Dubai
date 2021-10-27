@@ -8,11 +8,8 @@
     box-sizing: border-box
 }
 
-/*Las reglas del tipo de letra que usamos*/
 body{
     font-family: 'Roboto', sans-serif;
-    /* background-position:center; */
-
     display: flex; /*ayuda a centrar*/
     min-height: 100vh;
     z-index: -1;
