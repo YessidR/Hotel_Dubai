@@ -11,52 +11,95 @@ from werkzeug.security import check_password_hash, generate_password_hash
 app = Flask(__name__)
 app.secret_key=os.urandom(24)
 
+'''------------------------------------------------------------'''
+class log:  # Clase para almacenar valores de las dof. opciones
+    login = int(0) # Si vale 1 = logueado, si vale 0 = no logueado
+    user  = int(0)  # Id Usuario en numero
+    nombre = str(0) # nombre Usuario para ver el perfil
+    numHab = int(0) # Almacena el numero de la habitación
+'''------------------------------------------------------------'''
+
+# Inicio de todo....
 @app.route("/", methods=["GET"])
 def index():
     return render_template ("index.html")
 
-class login:  # Prueba con DIANA / YESSID
-    login = int(0)
-    user  = int(0)  # Prueba con DIANA / YESSID
-
-# Diana (OK)
+# Diana --> Login de Usuario
 @app.route("/login", methods=['GET','POST'])
 def login():
+    print ("Funcion Login L.32")
     if request.method == 'POST':
+        print ("Entramos al metodo L.34")
         user     = escape(request.form['user'])
         password = escape(request.form['psw'])
-        
         try:
             with sqlite3.connect("dbh.db") as con:
+                print ("Entramos a la base de datos L.39")
                 cur   = con.cursor()
                 query = cur.execute("SELECT password FROM usuario WHERE user=?",[user]).fetchone()
-                idu = cur.execute("SELECT idusuario FROM usuario WHERE user=?",[user]).fetchone() 
+                idu = cur.execute("SELECT idusuario FROM usuario WHERE user=?",[user]).fetchone()
                 if query!=None:
+                    print ("Entramos al query vacío L.44")
                     if (query[0]==password):
-                    # if check_password_hash(query[0],password):
-                        login.login=1 # Prueba con DIANA / YESSID
-                        login.user = idu[0]
-                        session['user']=user
-                        # print ("El valor de login es: ",login.login)
-                        # print ("El codigo de usuario es: ",idu)
-                        # print ("login.user es: ",login.user)
-                        return render_template("index_usuario.html") 
+                        print ("Pedimos usuario y contraseña L.46")
+                        session['user']=user # Nombre de usuario
+                        log.login=1 # Prueba con DIANA / YESSID #Sesion Iniciada
+                        log.user = idu[0] # Id usuario
+                        log.nombre = user
+                        print("el usuario es: ",log.user)
+                        print("El nombre de usuario es: ",log.nombre)
+
+                        #return redirect("/index") # Si hay error, borrar lo de abajo...
+
+                        if int(log.numHab) > 0: # Yessid: Redirecciona a la página de la habitación vista...
+                            numHab = str(log.numHab)
+                            return redirect ("/ver/"+numHab)
+                        else: # Yessid: Redirecciona al login si no hay habitación vista
+                            return redirect("/index")
                     else:
+                        print ("Clave incorrecta L.56")
                         return "Credenciales incorrectas"
                 else:
+                    print ("Usuario no existe L.59")
                     return "El usuario NO existe"
         except Error:
             print(Error)
 
     if 'user' in session:
-        if int(static.numHab)>0: # --> Vio hab (103)
+        print ("usuario en sesion??? L.65")
+        if int(log.numHab)>0: # --> Vio hab (103)
             return redirect("/reservar/crear")
         else:
-            return redirect('/')
-    else:
+            return redirect('/index')
+    else: #NO CAMBIAR...
+        print ("Si no hay sesion de usuario L.71")
         return render_template ("login.html")
 
-# Diana O.K.
+# Yessid --> Funcion de log out
+@app.route('/logout',methods=['GET'])
+def logout():
+    if 'user' in session:
+        log.login = 0
+        log.nombre = 0
+        log.user = 0
+        log.numHab = 0
+        session.clear()
+        print ("log.login es: ",log.login)
+        print ("log.nombre es: ", log.nombre)
+        print ("log.user es: ", log.user)
+        print ("log.numHab es: ", log.numHab)
+        return redirect('/')
+    else:
+        return redirect("/login")
+
+# Yessid --> Pagina de index con usuario logueado
+@app.route("/index", methods=['GET'])
+def logged():
+    user=log.nombre
+    print ("el usuario es: ", user )
+    return render_template ("index_usuario.html", user=user) #, user=user)
+
+# Diana --> registro nuevo usuario
 @app.route("/register", methods=['GET','POST'])
 def registrarse():
     if request.method == 'POST':
@@ -87,13 +130,15 @@ def registrarse():
                 return "Registro no completado"
     return render_template ("new_user.html")
 
-#Yessid (O.K.)
+#Yessid --> busqueda de habitaciones
 @app.route("/buscar", methods=["GET","POST"])
 def buscar():
     if request.method == 'POST':
         options = request.form['tipo']
         if options == "Buscar":
-            #Reemplazar con caja con alerta
+            flash('Debe seleccionar alguna opción')
+            # Reemplazar con caja con alerta
+            # return flash('Debe seleccionar alguna opción')
             return ('Debe seleccionar alguna opción')
         else:
             tipo = int(options)
@@ -112,37 +157,35 @@ def buscar():
                 return "Fallo en conexion"
     return "LLego hasta el final"
 
-# Camilo/Yessid: Creado para estandarizar el id Hab
-class static:
-    numHab = 0 #idHabitacion
-
-# Diana/Yessid (O.K.)
+# Diana/Yessid --> Ver habitacion
 @app.route("/ver/<numHab>")
 def busqueda(numHab):
-    static.numHab = str(numHab)
-    print ("La habitacion es: ", static.numHab)
+    log.numHab = str(numHab)
+    print ("La habitacion es: ", log.numHab)
     return render_template (str(numHab)+".html")
 
-
-#Yessid
+#Yessid --> Comentarios habitacion
 @app.route("/reservar/comentarios/listar/", methods=["GET", "POST"])
 def comentarios_listar():
-    print (static.numHab)
+    print (log.numHab)
     print ("Entramos a la func coment_list")
-    
     if request.method == 'GET':
         print("Metodo Get")
-        # static.hab = str(request.form['hab'])
+        # log.hab = str(request.form['hab'])
         # X =int (hab)
-        print ("El valor de variable es: "+static.numHab)
+        print ("El numero de la habitación es: ", log.numHab)
         # hab = escape (request.form['hab']) #Buscamos los comentarios de la HAB
         try:
             with sqlite3.connect("dbh.db") as con:
                 con.row_factory = sqlite3.Row
                 cur = con.cursor()
-                cur.execute("SELECT * FROM comentario WHERE idhabitacion = ?", [static.numHab])
+                #cur.execute("SELECT * FROM comentario WHERE idhabitacion = ?", [log.numHab])
+                cur.execute("SELECT * FROM comentario INNER JOIN usuario ON usuario.idusuario=comentario.idusuario WHERE idhabitacion = ?", [log.numHab])
                 row = cur.fetchall()
-                x = static.numHab
+                x = log.numHab
+                
+                #Busqueda de usuario
+
             if row is None:
                 flash('No hay comentarios de esta habitación')
             return render_template("comentarios.html", row=row,x=x)
@@ -150,16 +193,9 @@ def comentarios_listar():
         except Error:
             return "Fallo en conexion"
 
-
-''''''
-
 #--------------------------------------------reservar:usuario final---------------------
-@app.route("/reservar/comentar", methods=["GET", "POST"])
-def res_vercom():
-    return render_template ("res_vercom.html")
 
-# ______________________________________________________________
-# Diana
+# Diana --> Nueva reserva
 @app.route("/reservar/crear", methods=["GET", "POST"])
 def crear():
     if request.method == 'POST':
@@ -170,35 +206,46 @@ def crear():
             print("Base de datos. yuhuuuuu")
             with sqlite3.connect("dbh.db") as con:
                 cur    = con.cursor()
-                # sql    = "SELECT * FROM usuario WHERE user='{}'".format(login.login)
-                cur.execute("INSERT INTO reserva(idusuario, fechaingreso, fechasalida, idhabitacion) VALUES (?,?,?,?)",(login.user,fechaingreso,fechasalida, static.numHab))
+                # sql    = "SELECT * FROM usuario WHERE user='{}'".format(log.login)
+                
+                cur.execute("INSERT INTO reserva(idusuario, fechaingreso, fechasalida, idhabitacion) VALUES (?,?,?,?)",(log.user,fechaingreso,fechasalida, log.numHab))
                 con.commit()
                 print ("Guardado con éxito")
         except Error:
-            print(Error)
+            return (Error)
     return render_template("reservar.html")
-            
- 
-# login.login # --> Estado (1=activo), (0=noactivo)
-# login.user # --> nombre usuario
-# static.numHab # --> numero habitacion consultada
+
+# Yessid --> Historial de reservas
+@app.route("/reservar/listar", methods=["GET", "POST"])
+def listar():
+    if request.method == 'GET':
+        id = log.user
+        print ("el usuario es: ", id)
+        try:
+            with sqlite3.connect("dbh.db") as con:
+                con.row_factory = sqlite3.Row
+                cur = con.cursor()
+                cur.execute("SELECT * FROM reserva WHERE idusuario = ?", [id])
+                row = cur.fetchall()
+            if row is None:
+                flash('No hay habitaciones disponibles, de acuerdo a tu búsqueda')
+        except Error:
+            return "fallamos, donde???"
+    else:
+        print("error en el metodo")
+    return render_template ("listaReserva.html", row=row, nombre=log.nombre)
 
 # ____________________________________________________________
 
-    return render_template ("reservar.html")
+@app.route("/reservar/comentar", methods=["GET", "POST"])
+def res_vercom():
+    return render_template ("res_vercom.html")
 
-@app.route("/reservar/listar", methods=["GET", "POST"])
-def listar():
-    return render_template ("listaReserva.html")
 
 @app.route("/reservar/crear/comentarios", methods=["GET", "POST"])
 def comentarios():
     return render_template ("calificar.html")
 
-#Yessid
-# @app.route("/reservar/comentarios/listar", methods=["GET", "POST"])
-# def comentarios_listar():
-#     return render_template ("comentarios.html")
 
 #----------------------------------------admin/index------------------------------------
 @app.route("/admin/dashboard", methods=["GET", "POST"])
@@ -237,6 +284,8 @@ def reserva_delete():
     return render_template ("gestionarreserva.html")
 
 #-----------------------------------------admin/Usuarios-------------------------------------------------
+
+# Camilo --> (En proceso)
 @app.route("/admin/dashboard/usuarios/listar", methods=["GET", "POST"])
 def usuario_listar():
     if request.method == 'GET':
@@ -260,10 +309,7 @@ def usuario_editar():
 def usuario_delete():
     return render_template ("gestionarusuario.html")
 
-#seccion o ruta nueva
-@app.route("/index/logueado", methods=["GET","POST"])
-def indexuser():
-    return render_template ("index_usuario.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
