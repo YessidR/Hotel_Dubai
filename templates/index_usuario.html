@@ -33,11 +33,21 @@
             <div class="lista">
                 <ul>
                     <!-- Yessid Fueron agregados para crear los link de los botones -->
-                    <li><a href="/" class="form_link">Inicio</a></li>
+                    <li><p> {{ user }}</p></li>  <!-- Yessid: Crear enlace para editar usuario -->
                     <li><a href="/reservar/listar" class="form_link">Ver Historial</a></li>
                     
                     <!-- Yessid: Darle acción al botón para logout-->
-                    <li><a href="/" class="form_link">Cerrar sesión</a></li>
+                    <li><a href="/logout" class="form_link" id="Logout">Cerrar sesión</a></li>
+
+                    <!-- Yessid: Accion de cerrar sesion... -->
+                    <script>
+                        let btn = document.getElementById("Logout")
+                        btn.addEventListener("click",cerrar)
+                        function cerrar(){
+                            alert("Usted cerró sesión")
+                        }
+                    </script>
+
                 </ul>
             </div>
         </div>

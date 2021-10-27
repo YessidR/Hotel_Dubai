@@ -16,44 +16,29 @@
 			   alt="Es hora de viajar"
 			   width="650px" height="550px" /></td>
       <td width="50%">
-            <form action="" class="form">
+            <form action="" class="form" method="GET">
                 <h2 class="form_title">Dubai Hotel and Residences</h2>
 
                 <div class="form_container">
-                    <h4> Esta es la lista de tus reservas: </h4>
+                    <h4>Bienvenido {{ nombre }} este es tu historial de reservas</h4>
+
+                    {% for r in row %}
 
                     <div class="form_group">
                         <img src="/static/img/cama.jpg" alt="Habitacion" style="width: 150px; height: 100px; float: left; padding: 5px;">
-                        <label>★★★★★</label>
+                        <br>
+                        <label> Ingreso: {{ r["fechaingreso"] }} </label>
 						<br>
-                        <label class="form_label">Descripción</label> 
+                        <label> Salida: {{ r["fechasalida"] }} </label> 
                         <br>
-                        <label class="form_label">Hab. 001</label>
+                        <label> Habitación: {{ r["idhabitacion"] }} </label>
                         <br>
-                        <!-- <input type="submit" id="boton" class="form_submit" value="Editar">--><a href="reservar/crear/comentarios"><input type="button" id="boton" class="form_submit" value="Calificar"></a>  
                     </div>
 
-                    <div class="form_group">
-                        <img src="/static/img/cama.jpg" alt="Habitacion" style="width: 150px; height: 100px; float: left; padding: 5px;">
-                        <label>★★★★★</label>
-						<br>
-                        <label class="form_label">Descripción</label> 
-                        <br>
-                        <label class="form_label">Hab. 002</label>
-                        <br>
-                        <!-- <input type="submit" id="boton" class="form_submit" value="Editar">--> <a href="reservar/crear/comentarios"><input type="button" id="boton" class="form_submit" value="Calificar"></a> 
-                    </div>
+                    {% endfor%}
 
-                    <div class="form_group">
-                        <img src="/static/img/cama.jpg" alt="Habitacion" style="width: 150px; height: 100px; float: left; padding: 5px;">
-                        <label>★★★★★</label>
-						<br>
-                        <label class="form_label">Descripción</label> 
-                        <br>
-                        <label class="form_label">Hab. 003</label>
-                        <br>
-                        <a href="reservar/crear/comentarios"><input type="button" id="boton" class="form_submit" value="Calificar"></a> 
-                    </div>
+                    <input type="button" class="form_submit" width="150px" value=" Regresar " onClick="history.go(-1);">
+                    <a href="/reservar/crear/comentarios"><input type="button" class="form_submit" width="150px" value=" Calificar "></a>
                 </div>
             </form>
 		</td>

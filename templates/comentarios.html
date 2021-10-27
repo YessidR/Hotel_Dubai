@@ -24,12 +24,13 @@
 
             {% for r in row %}
 
-            
-
             <div class="form_container">
 
                 <div class="form_group">
-                    <label class="form_label">{{ r["user"] }}</label>
+                    <label class="form_label">Usuario: {{ r["nombre"] }}</label>
+                    <br>
+                    <label class="form_label">Puntuación: {{ r["puntuacion"] }}/5</label>
+                    <br>
                     <label class="form_label">{{ r["comentario"] }}</label>
 
                 </div>
