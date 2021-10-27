@@ -18,14 +18,15 @@ body{
     z-index: -1;
 }
 
+
 /*ayuda a ccentrar el formulario gracias al flexbox de arriba*/
 /*recuadro del formulario*/
 .form{
     z-index: 1;
     background-color: #fff;
     margin: auto; /*centra el recuadro*/
-    width: 60%; /*que el 60% de la imagen no sea mayor a 400px*/
-    max-width: 400px; /*ayuda a adaptar a dispositivos moviles*/
+    width: 75%; /*que el 60% de la imagen no sea mayor a 400px*/
+    max-width: 780px; /*ayuda a adaptar a dispositivos moviles*/
     padding: 30px 25px; /*tamaño del recuadro*/
     border-radius: 10px;
     box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%); /*0 en x, 5px en Y, un blur de 10px y un sprit de -5px,color negro y 30% de transparencia*/
@@ -38,6 +39,7 @@ body{
     font-size: 25px;
     margin-bottom: 10px;
 }
+
 
 /*contenedor de los input*/
 .form_container{
@@ -52,6 +54,8 @@ body{
     position: relative; /*usar fixed para acomodar a un lado*/
     --color:#5757577e; /*se crea como variable y se repite*/
 }
+
+
 
 .form_input{
     width:100%; /*tamaño de la linea*/
