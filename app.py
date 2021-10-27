@@ -18,6 +18,7 @@ class log:  # Clase para almacenar valores de las dof. opciones
     nombre = str(0) # nombre Usuario para ver el perfil
     numHab = int(0) # Almacena el numero de la habitación
     rol = str(0) # None para usuario final, 1 para admin
+    buscar = 0
 '''------------------------------------------------------------'''
 
 # Inicio de todo....
@@ -113,7 +114,7 @@ def logout():
         print ("log.numHab es: ", log.numHab)
         return redirect('/')
     else:
-        return redirect("/login")
+        return redirect("/")
 
 # Yessid --> Pagina de index con usuario logueado
 @app.route("/index", methods=['GET'])
@@ -157,12 +158,15 @@ def registrarse():
 @app.route("/buscar", methods=["GET","POST"])
 def buscar():
     if request.method == 'POST':
+        print ("Log.buscar antes es igual a: ", log.buscar)
         options = request.form['tipo']
+        log.buscar = options
+        print ("Log.buscar despues es igual a: ", log.buscar)
         if options == "Buscar":
             flash('Debe seleccionar alguna opción')
             # Reemplazar con caja con alerta
             # return flash('Debe seleccionar alguna opción')
-            return ('Debe seleccionar alguna opción')
+            return ('Debe seleccionar al menos una opción')
         else:
             tipo = int(options)
             try:
@@ -184,8 +188,12 @@ def buscar():
 @app.route("/ver/<numHab>")
 def busqueda(numHab):
     log.numHab = str(numHab)
+    if log.login == 1:
+        valor = "Cerrar sesión"
+    else: 
+        valor = ""
     print ("La habitacion es: ", log.numHab)
-    return render_template (str(numHab)+".html")
+    return render_template (str(numHab)+".html", valor=valor)
 
 #Yessid --> Comentarios habitacion
 @app.route("/reservar/comentarios/listar/", methods=["GET", "POST"])
