@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{url_for('static',filename='css/listaReserva.css')}}">
 </head>
 
-<body> 
+<body>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   	<tbody>
 	<tr>
@@ -26,19 +26,21 @@
 
                     <div class="form_group">
                         <img src="/static/img/cama.jpg" alt="Habitacion" style="width: 150px; height: 100px; float: left; padding: 5px;">
-                        <br>
                         <label> Ingreso: {{ r["fechaingreso"] }} </label>
 						<br>
-                        <label> Salida: {{ r["fechasalida"] }} </label> 
+                        <label> Salida: {{ r["fechasalida"] }} </label>
                         <br>
                         <label> Habitación: {{ r["idhabitacion"] }} </label>
+                        <br>
+                        <a href="/reservar/crear/comentarios"><input type="button" class="form_submit" width="150px" value=" Calificar "></a>
                         <br>
                     </div>
 
                     {% endfor%}
 
-                    <input type="button" class="form_submit" width="150px" value=" Regresar " onClick="history.go(-1);">
-                    <a href="/reservar/crear/comentarios"><input type="button" class="form_submit" width="150px" value=" Calificar "></a>
+                    <div style="text-align: center;">
+                        <input type="button" class="form_submit" width="150px" value=" Regresar " onClick="history.go(-1);">
+                    </div>
                 </div>
             </form>
 		</td>

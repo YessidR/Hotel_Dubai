@@ -20,8 +20,18 @@
             <div class="menu_dashboard">
                 <ul>
                     <!-- <li><a href="index.html">Inicio</a></li> -->
-                    <li><a href="/"> Inicio</a></li>
-                    <li><a href="/">Cerrar sesion</a></li>
+                    <li><a href="/index"> Inicio</a></li>
+                    
+                    <li><a href="/logout" class="form_link" id="Logout">Cerrar sesión</a></li>
+                    <!-- Yessid: Accion de cerrar sesion... -->
+                    <script>
+                        let btn = document.getElementById("Logout")
+                        btn.addEventListener("click",cerrar)
+                        function cerrar(){
+                            alert("Usted cerró sesión")
+                        }
+                    </script>
+
                 </ul>
                 <input type="search" name="searchadmin" id="searchadmin" placeholder="Buscar">
             </div>

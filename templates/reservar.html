@@ -12,8 +12,25 @@
     
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   	<tbody>   
-    <tr><td colspan="2"><p style="text-align: right;vertical-align:top; margin:5px 25px;font-size:15px"><a href="/" style="text-decoration:none;">Cerrar sesión</a></p></td></tr>
-	<tr>
+        <tr><td colspan="2"><p style="text-align: right;vertical-align:top; margin:5px 25px;font-size:15px"><a href="/logout" id="Logout" style="text-decoration:none;">Cerrar sesión</a></p></td></tr>
+	        
+            <script>
+                let btn = document.getElementById("Logout")
+                btn.addEventListener("click",cerrar)
+                function cerrar(){
+                    alert("Usted cerró sesión")
+                }
+            </script>
+
+
+    <script>
+        let btn = document.getElementById("Logout")
+        btn.addEventListener("click",cerrar)
+        function cerrar(){
+            alert("Usted cerró sesión")
+        }
+    </script>
+    
         <td width="50%" align="center"><img src="/static/img/cama.jpg"
 			   alt="Es hora de viajar"
 			   width="650px" height="550px" style="border-radius: 10px;"/>
