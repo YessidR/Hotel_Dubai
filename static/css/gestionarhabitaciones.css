@@ -8,6 +8,7 @@
     flex-flow: row wrap;
     align-items: center;
     font-family: 'Hammersmith One', sans-serif;
+    display: flex;
     /*border: orangered 1px solid;*/
 
 }
@@ -19,6 +20,7 @@
     color: white;
     font-family: 'Hammersmith One', sans-serif;
     height: 68px;
+    display: grid;
 }
 .menu_dashboard li{
     list-style: none;
@@ -124,7 +126,7 @@ div .box_habitaciones .numero_habitacion p{
     text-align: center;
     /* border: indigo 1px solid; */
     font-family:'Hammersmith One', sans-serif;
-    font-size: 30px;
+    font-size: 20px;
     margin: 2px 15px ;
 }
 div .box_habitaciones .btn input{

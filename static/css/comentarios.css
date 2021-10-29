@@ -11,6 +11,8 @@
 /*Las reglas del tipo de letra que usamos*/
 body{
     font-family: 'Roboto', sans-serif;
+    background-position:center;
+    background-size: cover; /*extiende la imagen*/
     display: flex; /*ayuda a centrar*/
     min-height: 100vh;
     z-index: -1;
@@ -22,8 +24,8 @@ body{
     z-index: 1;
     background-color: #fff;
     margin: auto; /*centra el recuadro*/
-    width: 85%; /*que el 60% de la imagen no sea mayor a 400px*/
-    max-width: 500px; /*ayuda a adaptar a dispositivos moviles*/
+    width: 60%; /*que el 60% de la imagen no sea mayor a 400px*/
+    max-width: 400px; /*ayuda a adaptar a dispositivos moviles*/
     padding: 30px 25px; /*tamaño del recuadro*/
     border-radius: 10px;
     box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%); /*0 en x, 5px en Y, un blur de 10px y un sprit de -5px,color negro y 30% de transparencia*/
@@ -49,9 +51,8 @@ body{
     border:1px solid black;
     position: relative; /*usar fixed para acomodar a un lado*/
     --color:#0f0f0f7e; /*se crea como variable y se repite*/
-    padding:10px;
-    margin-bottom: 20px;
-    padding-bottom: 30px;
+    padding:30px;
+    border-radius: 5px;
 }
 
 .form_input{
@@ -77,6 +78,26 @@ body{
     transition: transform .5s, color .3s;
 }
 
+/*se vuelve mas oscuro al activar el input*/
+.form_input:not(:placeholder-shown){
+    color: #4d4646;
+}
+
+/*Efecto para subir label uaurio y contraseña*/
+.form_input:focus + .form_label, /*Form input este activo en la pseudoclase focus se usa el '+'*/
+.form_input:not(:placeholder-shown) + .form_label{ /*cuando el form input no esta vacio*/
+    transform: translateY(-12px) scale(.7);
+    transform-origin: left top;
+    color: #3866f2;
+}
+
+/*Show password*/
+.show_pass{
+    text-align: left;
+    font-size: 15px;
+    margin-top: -12px;
+}
+
 /*Caracteristicas del boton*/
 .form_submit{
     background: #3866f2;
@@ -89,6 +110,24 @@ body{
     border-radius: .5em;
     cursor:pointer;
 	text-align: center;
-    width: 43%;
 }
 
+/*No se que hace*/
+.form_line{
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #3866f2;
+    transform: scale(0);
+    transform: left bottom;
+    transition: transform .4s;
+}
+
+/*para dispositivos moviles*/
+@media (max-width:425px){
+    .form_title{
+        font-size: 1.8rem;
+    }
+}

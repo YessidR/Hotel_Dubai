@@ -2,7 +2,6 @@
     padding: 0;
     margin: 0;
 }
-
 body{
     background-image: url("../img/pexels-gapeppy-2373201.jpg");
     background-repeat: no-repeat;
@@ -20,7 +19,6 @@ body::after{
     right: 0;
     background-color: rgba(0,0,0,0.9);
 }
-
 /*contenedor del formulario*/
 .flex-container{
     display:flex;
@@ -44,22 +42,18 @@ body::after{
     font-family: 'Hammersmith One', sans-serif;
     cursor: pointer; /* Yessid: Para colocar el puntero */
 }
-
 .lista li{
     list-style: none;   
     margin: 0 20px; 
     font-size: 20px;
 }
-
 ul{
     display: inline-flex;
 }
-
 .lista ul li a{
     text-decoration: none;
     color: white;
 }
-
 .estrellas img{
     display: inline-flex;
     height: 50px;
@@ -68,7 +62,6 @@ ul{
     margin: 0 20px;
     opacity: 0.8;
 }
-
 .form-container{
     display:flex;
     flex-direction:column;
@@ -76,7 +69,6 @@ ul{
     /*border: red 5px solid;*/
     align-items: center;
 }
-
 /*estilos de los div pertenecientes al form*/
 .form-container form div{
     justify-content: center;
@@ -85,13 +77,11 @@ ul{
     /*border:blue 5px solid;*/
     
 }
-
 .labels{
     color: white;
     font-family: 'Hammersmith One', sans-serif;
     font-size: 35px;
 }
-
 /*estilo al input txt busqueda*/
  div .search {
     width: 900px;
@@ -118,7 +108,6 @@ ul{
     font-size: 20px;
     text-align: center;
 }
-
 /*estilo boton*/
 .btn_buscar input{
     /*border: red 5px solid*/
@@ -134,7 +123,6 @@ ul{
     border: 0;
     cursor: pointer;
 }
-
 /*estilo de imagenes de redes sociales*/
 .Imgcontainer{
     display: flex;
@@ -142,49 +130,21 @@ ul{
     justify-content: center;
     align-items: center;
 }
-
 .Imgcontainer .Imgelementos{
     width: 80px;
     height: 80px;
     margin-top: 80px;
     margin-right: 50px;   
 }
-
 div .checkcaracteristicas{
     color: white;
     font-family: 'Hammersmith One', sans-serif;
     font-size: 25px;
-    margin: 0 270px;
-    padding: 10px;
-    
+    margin: 0 20px;
 }
-
 div .checkcaracteristicas input{
     height: 20px;
     width: 20px;
     border-radius: 15px;
     border: 0;
-}
-
-.socialmedia{
-    margin-top: 24px;
-    display: flex;
-    color: var(--black2);
-    font-size: 30px;
-    font-weight: bold;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: aliceblue;
-}
-
-.socialmedia_icon{
-    font-size: 30px;
-    margin-right: 16px;
-    display: flex;
-    color: #342727;
-}
-
-.socialmedia_legend{
-    color: var(--black2);
-    margin-right: 16px;
-    
 }
