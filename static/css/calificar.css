@@ -18,26 +18,28 @@ body{
     z-index: -1;
 }
 
+
 /*ayuda a ccentrar el formulario gracias al flexbox de arriba*/
 /*recuadro del formulario*/
 .form{
     z-index: 1;
     background-color: #fff;
     margin: auto; /*centra el recuadro*/
-    width: 60%; /*que el 60% de la imagen no sea mayor a 400px*/
-    max-width: 400px; /*ayuda a adaptar a dispositivos moviles*/
-    padding: 30px 25px; /*tamaño del recuadro*/
+    width: 750%; /*que el 60% de la imagen no sea mayor a 400px*/
+    max-width: 600px; /*ayuda a adaptar a dispositivos moviles*/
+    padding: 30px 25px;/*tamaño del recuadro*/
     border-radius: 10px;
     box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%); /*0 en x, 5px en Y, un blur de 10px y un sprit de -5px,color negro y 30% de transparencia*/
     text-align: center; /*centra el texto*/
 }
 
-/*Titulo Dubai...*/
+/* Titulo Dubai... */
 .form_title{
     color: #212121;
     font-size: 25px;
     margin-bottom: 10px;
 }
+
 
 /*contenedor de los input*/
 .form_container{

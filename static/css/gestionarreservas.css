@@ -94,7 +94,6 @@ div .fondo{
     height: 558px;
     width: 1358px;
     border-radius: 28px;
-    z-index: -1;
     
 }
 div .titulo h1{
@@ -112,7 +111,6 @@ div .fondo_azul{
     overflow: scroll;
     overflow-x: hidden;
     border-radius: 5px;
-    z-index: 1;
 }
 .elementos_reserva{
     display: inline-flex;
