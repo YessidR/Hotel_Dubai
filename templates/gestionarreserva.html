@@ -18,11 +18,11 @@
         <div class="dash_container">
             <div class="menu_dashboard">
                 <ul>
-                    <!-- <li><a href="index.html">Inicio</a></li> -->
-                    <li><a href="/index"> Inicio</a></li>
+                    
+                    <li><a href="/index"> Inicio </a></li>
                     
                     <li><a href="/logout" class="form_link" id="Logout">Cerrar sesión</a></li>
-                    <!-- Yessid: Accion de cerrar sesion... -->
+ 
                     <script>
                         let btn = document.getElementById("Logout")
                         btn.addEventListener("click",cerrar)
@@ -32,7 +32,7 @@
                     </script>
 
                 </ul>
-                <input type="search" name="searchadmin" id="searchadmin" placeholder="Buscar">
+                <!-- <input type="search" name="searchadmin" id="searchadmin" placeholder="Buscar"> -->
             </div>
             <div class="menu_dash_nombre">
                 <h1>{{ nombre }}</h1>
@@ -65,7 +65,7 @@
                         
                                 <a href="{{ url_for('reserva_editar',idreserva=r['idreserva'], idhab=r['idhabitacion'],ingre=r['fechaingreso'],sali=r['fechasalida']) }}"><input type="submit" value="Editar" id="Editar"></a> <!--envio por url_for la variable de idreserva-->
                                 
-                                <a href="{{ url_for('reserva_delete',id=r['idreserva'])}}"><input type="submit" value="Eliminar" id="Eliminar"  ></a> <!--,idhab=r['idhabitacion'])-->
+                                <a href="{{ url_for('reserva_delete',id=r['idreserva']) }}"><input type="submit" value="Eliminar" id="Eliminar"  ></a> <!--,idhab=r['idhabitacion'])-->
                             </div>
                             <div class="comentarios">
                                 <ul>

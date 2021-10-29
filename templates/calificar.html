@@ -17,7 +17,8 @@
 			   alt="Es hora de viajar"
 			   width="650px" height="550px" /></td>
       <td width="50%">
-		<form action="/reservar/crear/comentarios" method="POST"  class="form">
+		<!-- <form action="/reservar/crear/comentarios" method="POST"  class="form"> -->
+      <form action="/index" method="POST"  class="form">
        
         <h2 class="form_title">Dubai Hotel and Residences</h2>
         <!-- <h3> Habitación 001 </h3> -->
@@ -45,7 +46,18 @@
                 <span class="form_line"></span>
             </div>
             
-            <input type="submit" id="boton" class="form_submit" value="Continuar">
+            <a href=""><input type="submit" id="boton" class="form_submit" value="Continuar" style="width: 35%;"></a>
+              <!-- Yessid: Darle acción al botón para logout-->
+              <!-- <li><a href="/logout" class="form_link" id="Logout">Cerrar sesión</a></li> -->
+
+              <!-- Yessid: Accion de cerrar sesion... -->
+              <script>
+                  let btn = document.getElementById("boton")
+                  btn.addEventListener("click",crear)
+                  function crear(){
+                      alert("Gracias por su comentario")
+                  }
+              </script>
         </div>
     </form>
 		</td>
