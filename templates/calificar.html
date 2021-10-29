@@ -17,10 +17,10 @@
 			   alt="Es hora de viajar"
 			   width="650px" height="550px" /></td>
       <td width="50%">
-		<form action="/reservar/crear/comentarios" method="POST"  class="form">
+		<form action="comentarios/listar" class="form">
        
         <h2 class="form_title">Dubai Hotel and Residences</h2>
-        
+        <h3> Habitación 001 </h3>
         <!-- <p class="form_paragraph">¿Aun no tienes cuenta? <a href="/usuario_nuevo.html" class="form_link">Registrese aqui</a></p> -->
 
         <div class="form_container2">
@@ -38,28 +38,14 @@
 					<label for="radio5">★</label>
 				  </div>
 			  </div>
-        <br>  Habitación: <input type="int" name="numHab" size="1"/>
+			
 		    <div class="form_container">
             <div class="form_group">
-                <textarea cols="50" rows="2" name="comentario" class="form_input" placeholder="¿Tiene algún comentario?"></textarea>
+                <textarea cols="50" rows="2" class="form_input" placeholder="¿Tiene algún comentario?"></textarea>
                 <span class="form_line"></span>
             </div>
             
-            <input type="submit" id="boton" itemid="boton" class="form_submit" value="Continuar">
-
-            <script>
-                let btn = document.getElementById("boton")
-                btn.addEventListener("click",comentar)
-                function comentar(){
-                    alert("Gracias por su opinión")
-                }
-            </script>
-
-
-
-
-
-
+            <input type="submit" id="boton" class="form_submit" value="Continuar">
         </div>
     </form>
 		</td>
