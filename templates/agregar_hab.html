@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar Habitacion</title>
     <!-- <link rel="stylesheet" href="css/agregar_editar_hab.css"> -->
-    # <link rel="stylesheet" href="{{url_for('static', filename='css/agregar_editar_hab.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/agregar_editar_hab.css')}}">
 </head>
 <style>
 table{
@@ -26,45 +26,36 @@ td, h1, th{
             <h1 style="padding-top: 10%"></h1>
             </div>
             <p></p>
-            <div class="contenedorTabla">
-                <table align="center" style="width: 65% ">
-					<tr>
-                    <th colspan="4" style="font-size: 180%">Dubai Hotel and Residences</th>
-                    </tr>
-                    <tr>
-                    <th colspan="4" style="font-size: 120%">Datos de la habitación:</th>
-                    </tr>
-					<tr></tr>
-                    <tr>
-                        <td>Piso:</td>
-                        <td><input type="int" name="Piso" size="2"/></td>
-                        <td>No:</td>
-                        <td><input type="int" name="No" size="2"/></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Tipo:</td>
-                        <td><input name="cbsuite" type="checkbox" />Suite</td>
-                        <td><input name="cbsencilla" type="checkbox" />Sencilla</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><input name="cbcamad" type="checkbox" />Cama doble</td>
-                        <td colspan="2"><input name="cbcamas" type="checkbox" />Cama sencilla</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><input name="cbjacuzzi" type="checkbox" />Jacuzzi</td>
-                        <td colspan="2"><input name="cbducha" type="checkbox" />Ducha</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><input name="cbpterm" type="checkbox" />Piso térmico</td>
-                        <td colspan="2"><input name="cbwifi" type="checkbox" />Wifi</td>
-                    </tr>
-					<tr>
-					<th colspan="4">
-						<a href="admin/dashboard/habitaciones" class="boton azul">Agregar</a>
-					</th>
-					</tr>
-                </table>
-            </div>
+            <form action="/admin/dashboard/habitaciones/agregar" class="form" method ='POST'>
+                <div class="contenedorTabla">
+                    <table align="center" style="width: 65% ">
+                        <tr>
+                        <th colspan="4" style="font-size: 180%">Dubai Hotel and Residences</th>
+                        </tr>
+                        <tr>
+                        <th colspan="4" style="font-size: 120%">Datos de la habitación:</th>
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                            <td>Piso:</td>
+                            <td><input type="text" name="piso" size="2"/></td>
+                            <td>No:</td>
+                            <td><input type="text" name="no" size="2"/></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Tipo:</td>
+                            <td><input name="tipohab" type="radio" value="1"/>Sencilla</td>
+                            <td><input name="tipohab" type="radio"  value="2"/>Suite</td>
+                        </tr>
+                        <!-- Agudo Eliminados checkbox -->
+                        <tr>
+                        <th colspan="4">
+                            <ul> <input class="form_submit" type="submit" value="Agregar"></ul>
+                        </th>
+                        </tr>
+                    </table>
+                </div>
+            </form>
         </div>
     </section>
 </body>

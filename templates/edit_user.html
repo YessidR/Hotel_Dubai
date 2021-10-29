@@ -4,32 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Editar</title>
     <link rel="stylesheet" href="{{url_for('static', filename='css/edit_user.css')}}">
 </head>
 <body background="/img/login.jpeg"> 
 <!-- <body background="/img/login.jpeg"> --> <!--Se agrega el backround por la imagen de fondo-->
 
-    <form action="login" class="form">
+    <form action="{{ url_for('usuario_editar',idusuario=id) }}" class="form" method="POST">
 
-        <h2 class="form_title">Editar información del usuario</h2>
+        <h2 class="form_title">Editar información del usuario con id:{{ id }}</h2>
         <!-- <p class="form_paragraph">¿Aun no tienes cuenta? <a href="#" class="form_link">Registrese aqui</a></p> -->
 
         <div class="form_container">
             <div class="form_group">
-                <input type="text" id="name" class="form_input" placeholder=" ">
+                <input type="text" id="name" class="form_input" placeholder=" " name="name">
                 <label for="user" class="form_label">Nombre:</label>
                 <span class="form_line"></span>
             </div>
 
             <div class="form_group">
-                <input type="text" id="user" class="form_input" placeholder=" ">
+                <input type="text" id="user" class="form_input" placeholder=" " name="user">
                 <label for="user" class="form_label">Usuario:</label>
                 <span class="form_line"></span>
             </div>
 
             <div class="form_group">
-                <input type="text" id="email" class="form_input" placeholder=" ">
+                <input type="text" id="email" class="form_input" placeholder=" " name="email">
                 <label for="user" class="form_label">Correo electrónico:</label>
                 <span class="form_line"></span>
             </div>
@@ -41,7 +41,7 @@
                 <span class="form_line"></span>
             </div>
 
-            <a href="login"><input type="submit" class="form_submit" value="Actualizar" style="width:50%"></a>
+            <a href="{{ url_for('usuario_editar',idusuario=id) }}"><input type="submit" class="form_submit" value="Actualizar" style="width:50%"></a>
         </div>
 
 

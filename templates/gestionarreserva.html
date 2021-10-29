@@ -18,13 +18,24 @@
         <div class="dash_container">
             <div class="menu_dashboard">
                 <ul>
-                    <li><a href="/"> Inicio</a></li>
-                    <li><a href="/">Cerrar sesion</a></li> 
+                    <!-- <li><a href="index.html">Inicio</a></li> -->
+                    <li><a href="/index"> Inicio</a></li>
+                    
+                    <li><a href="/logout" class="form_link" id="Logout">Cerrar sesión</a></li>
+                    <!-- Yessid: Accion de cerrar sesion... -->
+                    <script>
+                        let btn = document.getElementById("Logout")
+                        btn.addEventListener("click",cerrar)
+                        function cerrar(){
+                            alert("Usted cerró sesión")
+                        }
+                    </script>
+
                 </ul>
                 <input type="search" name="searchadmin" id="searchadmin" placeholder="Buscar">
             </div>
             <div class="menu_dash_nombre">
-                <h1>Yesid Rios</h1>
+                <h1>{{ nombre }}</h1>
                 <P>Administrador</P>
             </div>
             <div class="menu_dashimg">
@@ -34,35 +45,34 @@
     </header>
     <section>
         <div class="container_gestionreserva">
-            <div class="fondo">
+            <div class="fondo" >
                 <div class="titulo">
                     <h1> Gestionar reservas</h1>
                 </div>
                 <div class="fondo_azul">
-                    <div class="elementos_reserva">
-                        <img src="/static/img/joven-confiado_1098-20868.webp" alt="">
-                        <p class="nombre">Carlos andres ramirez villanueva</p> <p class="codigo">Código:12</p><p class="codigo">Habitación:</p>
-                        <img src="/static/img/llave-de-la-habitacion.png" alt="" id="imgllave">
-                        <p id="numero">305</p>
-                        <a href="/admin/dashboard/reservas/editar"><input type="button" value="Editar" id="Editar"></a><a href="/admin/dashboard/reservas/delete"><input type="button" value="Eliminar" id="Eliminar"></a>
-                    </div>
-                    <div class="comentarios">
-                        <ul>
-                            <li><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam, corporis quisquam aut quibusdam magni enim. Repellendus doloribus suscipit saepe omnis? Maiores, deleniti. Eius provident deleniti, sint corrupti quia accusantium. Repellat magnam doloremque laudantium quo recusandae omnis fuga aliquam dolorum iure impedit. Exercitationem nemo dolores laudantium numquam necessitatibus, ea animi? Rem laboriosam ex animi quisquam placeat nostrum, molestias, expedita dolores reprehenderit natus vitae quasi perferendis corrupti? Vitae ipsum quo ea esse! Voluptate enim magni earum facere est dolorem ex perferendis, maiores, dolor quasi voluptatem id perspiciatis quis deserunt aliquam illo? Ipsa eveniet necessitatibus perferendis culpa voluptate atque incidunt commodi harum ducimus.</p></li>
-                        </ul>
-                    </div>
-                    <div class="elementos_reserva">
-                        <img src="/static/img/joven-confiado_1098-20868.webp" alt="">
-                        <p class="nombre">Carlos andres ramirez villanueva</p> <p class="codigo">Código:50</p><p class="codigo">Habitación:</p>
-                        <img src="/static/img/llave-de-la-habitacion.png" alt="" id="imgllave">
-                        <p id="numero">405</p>
-                        <a href="/admin/dashboard/reservas/editar"><input type="button" value="Editar" id="Editar"></a> <a href="/admin/dashboard/reservas/delete"><input type="button" value="Eliminar" id="Eliminar"></a>
-                    </div>
-                    <div class="comentarios">
-                        <ul>
-                            <li><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam, corporis quisquam aut quibusdam magni enim. Repellendus doloribus suscipit saepe omnis? Maiores, deleniti. Eius provident deleniti, sint corrupti quia accusantium. Repellat magnam doloremque laudantium quo recusandae omnis fuga aliquam dolorum iure impedit. Exercitationem nemo dolores laudantium numquam necessitatibus, ea animi? Rem laboriosam ex animi quisquam placeat nostrum, molestias, expedita dolores reprehenderit natus vitae quasi perferendis corrupti? Vitae ipsum quo ea esse! Voluptate enim magni earum facere est dolorem ex perferendis, maiores, dolor quasi voluptatem id perspiciatis quis deserunt aliquam illo? Ipsa eveniet necessitatibus perferendis culpa voluptate atque incidunt commodi harum ducimus.</p></li>
-                        </ul>
-                    </div>
+                        {% for r in row %}
+                            <div class="elementos_reserva">
+                                <img src="/static/img/joven-confiado_1098-20868.webp" alt="">
+                                <p class="nombre">{{ r["nombre"] }}</p> <p class="codigo">Cod:{{ r["idreserva"] }}</p>
+
+                                <p class="codigo">Ingreso:{{ r['fechaingreso'] }}</p>
+                                <p class="codigo">Salida:{{ r['fechasalida'] }}</p>
+
+
+                                <p class="codigo">Hab:</p>
+                                <img src="/static/img/llave-de-la-habitacion.png" alt="" id="imgllave">
+                                <p id="numero">{{ r["idhabitacion"] }}</p>
+                        
+                                <a href="{{ url_for('reserva_editar',idreserva=r['idreserva'], idhab=r['idhabitacion'],ingre=r['fechaingreso'],sali=r['fechasalida']) }}"><input type="submit" value="Editar" id="Editar"></a> <!--envio por url_for la variable de idreserva-->
+                                
+                                <a href="{{ url_for('reserva_delete',id=r['idreserva'])}}"><input type="submit" value="Eliminar" id="Eliminar"  ></a> <!--,idhab=r['idhabitacion'])-->
+                            </div>
+                            <div class="comentarios">
+                                <ul>
+                                    <li><p>{{ r["comentario"] }}</p></li>
+                                </ul>
+                            </div>
+                        {% endfor %}
                 </div>
             </div>
         </div>

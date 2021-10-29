@@ -18,13 +18,23 @@
         <div class="dash_container">
             <div class="menu_dashboard">
                 <ul>
-                    <li><a href="/"> Inicio</a></li>
-                    <li><a href="/">Cerrar sesion</a></li>
+                    <!-- <li><a href="index.html">Inicio</a></li> -->
+                    <li><a href="/index"> Inicio</a></li>
+                    
+                    <li><a href="/logout" class="form_link" id="Logout">Cerrar sesión</a></li>
+                    <!-- Yessid: Accion de cerrar sesion... -->
+                    <script>
+                        let btn = document.getElementById("Logout")
+                        btn.addEventListener("click",cerrar)
+                        function cerrar(){
+                            alert("Usted cerró sesión")
+                        }
+                    </script>
+
                 </ul>
-                <input type="search" name="searchadmin" id="searchadmin" placeholder="Buscar">
             </div>
             <div class="menu_dash_nombre">
-                <h1>Yesid Rios</h1>
+                <h1>{{ nombre }}</h1>
                 <P>Administrador</P>
             </div>
             <div class="menu_dashimg">
@@ -38,19 +48,21 @@
                 <H1>Gestionar habitaciones</H1>
             </div>
             <div class="habitaciones"><!--contenedor principal de las habitaciones-->
+                {% for r in row %}
                 <div class="box_habitaciones">
                     <div class="Imghabita">
                         <img src="/static/img/gestionarhabitaciones.jpg" alt="">
                     </div>
                     <div class="numero_habitacion">
-                        <p>Habitacion:405</p>
+                        <p>Habitacion: {{r['idhabitacion']}}</p>
                     </div>
                     <div class="btn">
-                        <a href="/admin/dashboard/habitaciones/editar"><input type="button" value="Editar" id="Editar"></a>
-                        <a href="/reservar/comentarios/listar"><input type="button" value="Ver" id="Ver"></a>
-                        <a href="/admin/dashboard/habitaciones/delete"><input type="button" value="Eliminar" id="Eliminar"></a>    
+                        <a href="{{ url_for('cargar_editarhab',idhab=r['idhabitacion']) }}"><input type="button" value="Editar" id="Editar"></a>
+                        <a href="{{url_for('ver_hab',idhab=r['idhabitacion']) }}"><input type="button" value="Ver" id="Ver"></a>
+                        <a href="{{ url_for('delete',idhab=r['idhabitacion']) }}"><input type="button" value="Eliminar" id="Eliminar"></a>
                     </div>
                 </div>
+                {% endfor %}
                 <!--boton para egragar mas habitaciones-->
                 <div class="box_habitaciones">
                     <div class="agregarhabita">
